@@ -5,84 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1bb53970-6a69-486b-af7f-d1b34c0977ec" name="Changes" comment="first">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-api/HELP.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/.vscode/extensions.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/jsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/public/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/App.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/api/about.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/api/archives.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/api/blog.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/api/category.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/api/comment.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/api/friend.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/api/home.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/api/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/api/login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/api/moment.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/api/tag.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/assets/css/badge.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/assets/css/base.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/assets/css/icon/iconfont.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/assets/css/icon/iconfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/assets/css/icon/iconfont.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/assets/css/icon/iconfont.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/assets/css/icon/iconfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/assets/css/icon/iconfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/assets/css/icon/iconfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/assets/css/icon/iconfont.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/assets/css/typo.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/common/reg.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/components/blog/BlogItem.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/components/blog/BlogList.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/components/blog/Pagination.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/components/comment/Comment.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/components/comment/CommentForm.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/components/comment/CommentList.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/components/comment/Pagination.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/components/index/BlogPasswordDialog.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/components/index/Footer.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/components/index/Header.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/components/index/MyAPlayer.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/components/index/Nav.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/components/sidebar/Introduction.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/components/sidebar/RandomBlog.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/components/sidebar/Tags.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/components/sidebar/Tocbot.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/plugins/aruMapper.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/plugins/axios.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/plugins/paopaoMapper.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/plugins/tvMapper.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/router/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/store/actions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/store/getters.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/store/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/store/mutations-types.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/store/mutations.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/store/state.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/util/dateTimeFormatUtils.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/util/directive.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/util/get-page-title.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/views/Index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/views/Login.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/views/about/About.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/views/archives/Archives.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/views/blog/Blog.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/views/category/Category.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/views/friends/Friends.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/views/home/Home.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/views/moments/Moments.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/src/views/tag/Tag.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gblog-view/vite.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,24 +55,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "jdk.selected.JAVA_MODULE": "17",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/OneDrive/learn/projects/GBlog",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "MavenSettings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/OneDrive/learn/projects/GBlog&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\OneDrive\learn\projects\GBlog\gblog-api\src\main\resources" />
@@ -186,6 +109,8 @@
       <workItem from="1721199664280" duration="229000" />
       <workItem from="1721199899853" duration="37000" />
       <workItem from="1721199953901" duration="279000" />
+      <workItem from="1721201223463" duration="61000" />
+      <workItem from="1721201290392" duration="1000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <option name="closed" value="true" />
