@@ -1,7 +1,9 @@
 <template>
 	<div>
+		<h1>博客首页</h1>
 		<BlogList :getBlogList="getBlogList" :blogList="blogList" :totalPage="totalPage"/>
 	</div>
+
 </template>
 
 <script>
@@ -43,7 +45,7 @@
 						this.blogList = res.data.list
 						this.totalPage = res.data.totalPage
 						this.$nextTick(() => {
-              // eslint-disable-next-line no-undef
+              			// eslint-disable-next-line no-undef
 							Prism.highlightAll()
 						})
 						this.getBlogListFinish = true

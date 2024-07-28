@@ -13,40 +13,51 @@
 	</div>
 </template>
 
-<script>
-	import {getAbout} from "@/api/about";
-	import CommentList from "@/components/comment/CommentList";
+<script setup> //setup语法糖，无需手动调用setup函数，无需使用return将变量和数据暴露给template。
+import { defineProps } from 'vue';
+import { ref, onMounted } from 'vue';
+import { getAbout } from "@/api/about";
+import CommentList from "@/components/comment/CommentList";
 
-	export default {
-		name: "blogAbout",
-		components: {CommentList},
-		data() {
-			return {
-				about: {
-					title: '',
-					musicId: '',
-					content: '',
-					commentEnabled: 'false'
-				}
-			}
-		},
-		created() {
-			this.getData()
-		},
-		methods: {
-			getData() {
-				getAbout().then(res => {
-					if (res.code === 200) {
-						this.about = res.data
-					} else {
-						this.msgError(res.msg)
-					}
-				}).catch(() => {
-					this.msgError("请求失败")
-				})
-			}
+defineProps({
+	name: "blogAbout",
+	components: { CommentList }
+})
+
+const about = ref({
+	title: '',
+	musicId: '',
+	content: '',
+	commentEnabled: 'false'
+})
+
+// const getData = async () => {
+// 	console.log('发送请求');
+// 	const res = await getAbout();
+// 	console.log(res);
+// 	about.value = res.data;
+// }
+const getData = () => {
+	getAbout().then(res => {
+		if (res.code === 200) {
+			about.value = res.data;
+			console.log(res.data);
+
+		} else {
+			// msgError(res.msg);
+			console.log(res.msg);
 		}
-	}
+	}).catch(() => {
+		// msgError("请求失败");
+		console.log("请求失败");
+	});
+}
+onMounted(() => {
+	getData();
+})
+
+
+
 </script>
 
 <style>

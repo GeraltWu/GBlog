@@ -4,7 +4,73 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bb53970-6a69-486b-af7f-d1b34c0977ec" name="Changes" comment="first" />
+    <list default="true" id="1bb53970-6a69-486b-af7f-d1b34c0977ec" name="Changes" comment="删除一个没用的maven-wrapper，可以说是相当恶心人了，每次新建项目都要自动开始下载">
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/annotation/OperationLogger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/annotation/VisitLogger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/config/RedisConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/constant/RedisKeyConstants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/cotroller/BlogController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/cotroller/admin/AboutAdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/enums/VisitBehavior.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/exception/NotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/exception/PersistenceException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/mapper/BlogMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/mapper/TagMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/model/dto/Blog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/model/dto/BlogView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/model/dto/BlogVisibility.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/model/vo/ArchiveBlog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/model/vo/BlogDetail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/model/vo/BlogInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/model/vo/CategoryBlogCount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/model/vo/NewBlog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/model/vo/PageResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/model/vo/RandomBlog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/model/vo/Result.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/model/vo/SearchBlog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/model/vo/TagBlogCount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/service/BlogService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/service/RedisService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/service/TagService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/service/impl/BlogServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/service/impl/RedisServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/service/impl/TagServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/util/JacksonUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/util/markdown/MarkdownUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/util/markdown/ext/cover/Cover.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/util/markdown/ext/cover/CoverExtension.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/util/markdown/ext/cover/internal/AbstractCoverNodeRenderer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/util/markdown/ext/cover/internal/CoverDelimiterProcessor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/util/markdown/ext/cover/internal/CoverHtmlNodeRenderer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/util/markdown/ext/cover/internal/CoverTextContentNodeRenderer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/util/markdown/ext/heimu/Heimu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/util/markdown/ext/heimu/HeimuExtension.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/util/markdown/ext/heimu/internal/AbstractHeimuNodeRenderer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/util/markdown/ext/heimu/internal/HeimuDelimiterProcessor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/util/markdown/ext/heimu/internal/HeimuHtmlNodeRenderer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/util/markdown/ext/heimu/internal/HeimuTextContentNodeRenderer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gblog-api/src/main/resources/fun/wuziran/gblogapi/mapper/AboutMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gblog-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gblog-api/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/config/OpenAPIConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/config/OpenAPIConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/cotroller/AboutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/cotroller/AboutController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/entity/About.java" beforeDir="false" afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/entity/About.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/mapper/AboutMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/mapper/AboutMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/service/impl/AboutServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/service/impl/AboutServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gblog-api/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gblog-api/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gblog-view/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/gblog-view/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gblog-view/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/gblog-view/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gblog-view/src/api/about.js" beforeDir="false" afterPath="$PROJECT_DIR$/gblog-view/src/api/about.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gblog-view/src/components/index/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/gblog-view/src/components/index/Header.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gblog-view/src/plugins/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/gblog-view/src/plugins/axios.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gblog-view/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/gblog-view/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gblog-view/src/views/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/gblog-view/src/views/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gblog-view/src/views/about/About.vue" beforeDir="false" afterPath="$PROJECT_DIR$/gblog-view/src/views/about/About.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gblog-view/src/views/home/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/gblog-view/src/views/home/Home.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gblog-view/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/gblog-view/vite.config.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,7 +106,7 @@
     </option>
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
@@ -53,30 +119,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.GblogApiApplication.executor": "Run",
-    "git-widget-placeholder": "main",
-    "jdk.selected.JAVA_MODULE": "17",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/OneDrive/learn/projects/GBlog",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "MavenSettings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.GblogApiApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/OneDrive/learn/projects/admin3&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
+    ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\OneDrive\learn\projects\GBlog\gblog-api\src\main\java\fun\wuziran\gblogapi" />
       <recent name="D:\OneDrive\learn\projects\GBlog\gblog-api\src\main\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="fun.wuziran.gblogapi.annotation" />
       <recent name="fun.wuziran.gblogapi.config" />
       <recent name="fun.wuziran.gblogapi.cotroller" />
       <recent name="fun.wuziran.gblogapi.model" />
@@ -110,7 +187,16 @@
       <workItem from="1721199953901" duration="279000" />
       <workItem from="1721201223463" duration="61000" />
       <workItem from="1721201290392" duration="1000" />
-      <workItem from="1721201340958" duration="350000" />
+      <workItem from="1721201340958" duration="1010000" />
+      <workItem from="1721202372464" duration="207000" />
+      <workItem from="1721202588629" duration="6267000" />
+      <workItem from="1721209570368" duration="133000" />
+      <workItem from="1721209712884" duration="12429000" />
+      <workItem from="1721263877781" duration="2629000" />
+      <workItem from="1721266529270" duration="1152000" />
+      <workItem from="1721269140628" duration="208000" />
+      <workItem from="1721269650426" duration="6829000" />
+      <workItem from="1721564786395" duration="2853000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <option name="closed" value="true" />
@@ -128,7 +214,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721199704129</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="删除一个没用的maven-wrapper，可以说是相当恶心人了，每次新建项目都要自动开始下载">
+      <option name="closed" value="true" />
+      <created>1721202041774</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1721202041774</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,6 +254,11 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="first" />
-    <option name="LAST_COMMIT_MESSAGE" value="first" />
+    <MESSAGE value="删除一个没用的maven-wrapper，可以说是相当恶心人了，每次新建项目都要自动开始下载" />
+    <option name="LAST_COMMIT_MESSAGE" value="删除一个没用的maven-wrapper，可以说是相当恶心人了，每次新建项目都要自动开始下载" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

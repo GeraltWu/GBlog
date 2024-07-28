@@ -4,7 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @Description
+ * @Description 关于我实体类
  * @Author Geralt
  * @Date 2024/7/16
  */

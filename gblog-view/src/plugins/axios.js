@@ -2,15 +2,18 @@ import axios from "axios";
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 
-const request = axios.create({
-	baseURL: 'http://localhost:8090/',
+//const baseURL = process.env.VUE_APP_API_URL;
+const instance = axios.create({
+	baseURL: '/api',
 	timeout: 10000,
 })
 
-// 请求拦截
-request.interceptors.request.use(
+// 用拦截器进行请求拦截，身份标识的获取和保存
+instance.interceptors.request.use(
 	config => {
+		// 显示进度条
 		NProgress.start()
+		// 从localStorage中获取身份标识
 		const identification = window.localStorage.getItem('identification')
 		//identification存在，且是基于baseURL的请求
 		if (identification && !(config.url.startsWith('http://') || config.url.startsWith('https://'))) {
@@ -20,8 +23,8 @@ request.interceptors.request.use(
 	}
 )
 
-// 响应拦截
-request.interceptors.response.use(
+// 用拦截器进行响应拦截，身份标识的获取和保存
+instance.interceptors.response.use(
 	config => {
 		NProgress.done()
 		const identification = config.headers.identification
@@ -33,4 +36,4 @@ request.interceptors.response.use(
 	}
 )
 
-export default request
+export default instance

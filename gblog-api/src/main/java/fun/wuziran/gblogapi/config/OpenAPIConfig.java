@@ -12,8 +12,8 @@ public class OpenAPIConfig {
     public OpenAPI openAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("接口文档标题")
-                        .description("SpringBoot3 集成 Swagger3接口文档")
+                        .title("GBlog API")
+                        .description("SpringBoot3 集成 Swagger3 接口文档")
                         .version("v1"))
                 .externalDocs(new ExternalDocumentation()
                         .description("项目API文档")

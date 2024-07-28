@@ -4,9 +4,9 @@ import getPageTitle from '@/util/get-page-title'
 
 const routes = [
 	{
-		path: '/login',
-		component: () => import('@/views/Login'),
-		meta: {title: '登录'}
+		path: '/login', // 定义登录页面的路径
+		component: () => import('@/views/Login'), // 动态导入登录页面的组件
+		meta: {title: '登录'} // 设置页面标题为“登录”
 	},
 	{
 		path: '/',
@@ -16,6 +16,7 @@ const routes = [
 			{
 				path: '/home',
 				name: 'home',
+				// 通过匿名函数的方式导入 Home 组件
 				component: () => import('@/views/home/Home'),
 				meta: {title: '首页'}
 			},

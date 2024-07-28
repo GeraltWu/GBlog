@@ -1,6 +1,7 @@
 package fun.wuziran.gblogapi.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,6 +16,7 @@ import java.util.List;
  * @Author Geralt
  * @Date 2024/7/17
  */
+@Data
 public class User implements UserDetails {
     private Long id;
     private String username;

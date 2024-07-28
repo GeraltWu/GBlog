@@ -1,12 +1,12 @@
 <template>
 	<header ref="header">
 		<div class="view">
-			<img ref="imgbg1" src="https://fastly.jsdelivr.net/gh/Naccl/blog-resource/img/bg1.jpg" style="display: none;">
-			<div class="bg1" style="background-image: url('https://fastly.jsdelivr.net/gh/Naccl/blog-resource/img/bg1.jpg');"></div>
-			<div class="bg2" style="background-image: url('https://fastly.jsdelivr.net/gh/Naccl/blog-resource/img/bg2.jpg');"></div>
-			<div class="bg3" style="background-image: url('https://fastly.jsdelivr.net/gh/Naccl/blog-resource/img/bg3.jpg');" v-show="loaded"></div>
+			<img ref="imgbg1" src="/img/wonder woman.png" style="display: none;">
+			<div class="bg1" style="background-image: url('/img/wonder woman.png');"></div>
+			<div class="bg2" style="background-image: url('/img/wonder woman.png');"></div>
+			<div class="bg3" style="background-image: url('/img/wonder woman.png');" v-show="loaded"></div>
 		</div>
-		<div class="text-malfunction" data-word="Naccl's Blog">
+		<div class="text-malfunction" data-word="Geralt's Blog">
 			<div class="line"></div>
 		</div>
 		<div class="wrapper">

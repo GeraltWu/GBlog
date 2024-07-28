@@ -12,7 +12,6 @@ import java.util.List;
  * @Date 2024/7/17
  */
 @Mapper
-@Repository
 public interface AboutMapper {
     List<About> getList();
 
