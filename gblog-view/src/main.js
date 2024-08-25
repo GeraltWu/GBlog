@@ -1,7 +1,10 @@
 import {createApp} from 'vue'
 import App from './App.vue'
+
 import router from './router'
-import store from './store'
+
+import { createPinia } from 'pinia'
+import directives from './util/directive'; // 导入自定义指令
 
 //自定义css
 import './assets/css/base.css'
@@ -23,7 +26,7 @@ import Viewer from 'v-viewer'
 import './util/directive'
 
 console.log(
-    '%c NBlog %c By Naccl %c https://github.com/Naccl/NBlog',
+    '%c 原作者 %c Naccl %c https://github.com/Naccl/NBlog',
     'background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff',
     'background:#41b883 ; padding: 1px; border-radius: 0 3px 3px 0;  color: #000',
     'background:transparent'
@@ -35,20 +38,6 @@ const app = createApp(App,
         return h => h(App)
     }
 });
-app.use(Element);
-app.use(Viewer);
-
-app.config.globalProperties.msgSuccess = function (msg) {
-    this.$message.success(msg)
-}
-
-app.config.globalProperties.msgError = function (msg) {
-    this.$message.error(msg)
-}
-
-app.config.globalProperties.msgInfo = function (msg) {
-    this.$message.info(msg);
-}
 
 const cubic = value => Math.pow(value, 3);
 const easeInOutCubic = value => value < 0.5 ? cubic(value * 2) / 2 : 1 - cubic((1 - value) * 2) / 2;
@@ -73,16 +62,13 @@ app.config.globalProperties.scrollToTop = function () {
 
 app.config.productionTip = false
 
-// app.use(
-//     Element,
-//     Viewer,
-//     router,
-//     store
-//     // ,npm
-//     // render: h => h(App)
-// );
+const pinia = createPinia()
+// 注册自定义指令
+app.use(directives) //全局注册
 
+app.use(Element);
+app.use(Viewer);
+app.use(pinia)
 app.use(router);
-app.use(store);
 
 app.mount('#app')

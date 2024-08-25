@@ -1,8 +1,8 @@
 import axios from "axios";
+import { ElMessage } from 'element-plus'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 
-//const baseURL = process.env.VUE_APP_API_URL;
 const instance = axios.create({
 	baseURL: '/api',
 	timeout: 10000,
@@ -20,20 +20,32 @@ instance.interceptors.request.use(
 			config.headers.identification = identification
 		}
 		return config
+	},
+	err => {
+		NProgress.start()
+		//请求错误的回调
+		Promise.reject(err)
 	}
 )
 
 // 用拦截器进行响应拦截，身份标识的获取和保存
 instance.interceptors.response.use(
-	config => {
-		NProgress.done()
-		const identification = config.headers.identification
+	response => {
+		NProgress.done();
+		const identification = response.headers.identification;
 		if (identification) {
-			//保存身份标识到localStorage
-			window.localStorage.setItem('identification', identification)
+			// 保存身份标识到 localStorage
+			window.localStorage.setItem('identification', identification);
 		}
-		return config.data
+
+		return response.data; // 返回服务器提供的响应数据
+
+	},
+	err => {
+		NProgress.done();
+		return Promise.reject(err);
 	}
-)
+);
+
 
 export default instance

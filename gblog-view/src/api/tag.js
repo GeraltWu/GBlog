@@ -1,6 +1,6 @@
 import axios from '@/plugins/axios'
 
-export function getBlogListByTagName(tagName, pageNum) {
+export function getBlogListByTagNameService(tagName, pageNum) {
 	return axios({
 		url: 'tag',
 		method: 'GET',

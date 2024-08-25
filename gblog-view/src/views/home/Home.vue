@@ -1,65 +1,61 @@
 <template>
 	<div>
-		<h1>博客首页</h1>
-		<BlogList :getBlogList="getBlogList" :blogList="blogList" :totalPage="totalPage"/>
+		<BlogList :getBlogList="getBlogList" :blogList="blogList" :totalPage="totalPage" />
 	</div>
 
 </template>
 
 <script>
-	import BlogList from "@/components/blog/BlogList";
-	import {getBlogList} from "@/api/home";
-	import {SET_IS_BLOG_TO_HOME} from "../../store/mutations-types";
+import { onMounted, ref, nextTick } from "vue";
+import { useBlogStore } from "@/stores/blog";
+import BlogList from "@/components/blog/BlogList";
+import { getBlogListService } from "@/api/home";
+import Prism from "prismjs";
+import { ElMessage } from "element-plus";
 
-	export default {
-		name: "blogHome",
-		components: {BlogList},
-		data() {
-			return {
-				blogList: [],
-				totalPage: 0,
-				getBlogListFinish: false
-			}
-		},
-		beforeRouteEnter(to, from, next) {
-			next(vm => {
-				if (from.name !== 'blog') {
-					//其它页面跳转到首页时，重新请求数据
-					//设置一个flag，让首页的分页组件指向正确的页码
-					vm.$store.commit(SET_IS_BLOG_TO_HOME, false)
-					vm.getBlogList()
+export default {
+	name: "Home",
+	components: { BlogList },
+
+	setup() {
+		const blogStore = useBlogStore();
+
+		const blogList = ref([])
+		const totalPage = ref(0)
+		// 请求完毕的标识
+		const getBlogListFinish = ref(false)
+		
+		function getBlogList(pageNum) {
+			console.log("获得bloglist")
+			getBlogListService(pageNum).then(res => {
+				if (res.code === 200) {
+					blogList.value = res.data.list
+					totalPage.value = res.data.totalPage
+					nextTick(() => {
+						// eslint-disable-next-line no-undef
+						Prism.highlightAll()
+					})
+					getBlogListFinish.value = true
 				} else {
-					//如果文章页面是起始访问页，首页将是第一次进入，即缓存不存在，要请求数据
-					if (!vm.getBlogListFinish) {
-						vm.getBlogList()
-					}
-					//从文章页面跳转到首页时，使用首页缓存
-					vm.$store.commit(SET_IS_BLOG_TO_HOME, true)
+					ElMessage.error(res.msg)
 				}
+			}).catch((error) => {
+				console.log(error)
+				ElMessage.error("请求失败")
 			})
-		},
-		methods: {
-			getBlogList(pageNum) {
-				getBlogList(pageNum).then(res => {
-					if (res.code === 200) {
-						this.blogList = res.data.list
-						this.totalPage = res.data.totalPage
-						this.$nextTick(() => {
-              			// eslint-disable-next-line no-undef
-							Prism.highlightAll()
-						})
-						this.getBlogListFinish = true
-					} else {
-						this.msgError(res.msg)
-					}
-				}).catch(() => {
-					this.msgError("请求失败")
-				})
-			}
+		}
+		onMounted(() => {
+			getBlogList(1)
+		})
+		return {
+			blogStore,
+			blogList,
+			totalPage,
+			getBlogListFinish,
+			getBlogList
 		}
 	}
+}
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

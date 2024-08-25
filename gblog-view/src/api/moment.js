@@ -1,6 +1,6 @@
 import axios from '@/plugins/axios'
 
-export function getMomentListByPageNum(token, pageNum) {
+export function getMomentListByPageNumService(token, pageNum) {
 	return axios({
 		url: 'moments',
 		method: 'GET',
@@ -13,7 +13,7 @@ export function getMomentListByPageNum(token, pageNum) {
 	})
 }
 
-export function likeMoment(id) {
+export function likeMomentService(id) {
 	return axios({
 		url: `moment/like/${id}`,
 		method: 'POST',

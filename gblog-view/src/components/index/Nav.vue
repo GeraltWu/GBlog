@@ -1,21 +1,21 @@
 <template>
-	<div ref="nav" class="ui fixed inverted stackable pointing menu"
-		:class="{ 'transparent': $route.name === 'home' && clientSize.clientWidth > 768 }">
+	<div ref="nav" class="ui fixed inverted stackable pointing menu m-black-bg"
+		:class="{ 'transparent': route.name === 'home' && siteStore.clientSize.clientWidth > 768 }">
 		<div class="ui container">
 			<router-link to="/">
-				<h3 class="ui header item m-blue">{{ blogName }}</h3>
+				<h3 class="ui header item m-blue">{{ siteStore.siteInfo.blogName }}</h3>
 			</router-link>
 
 			<router-link to="/home" class="item"
-				:class="{ 'm-mobile-hide': mobileHide, 'active': $route.name === 'home' }">
+				:class="{ 'm-mobile-hide': mobileHide, 'active': route.name === 'home' }">
 				<i class="home icon"></i>首页
 			</router-link>
 
 			<!-- 下拉菜单 分类 -->
 			<el-dropdown ref="dropdown" trigger="click" @command="categoryRoute" :popper-class="popperClass">
 				<span class="el-dropdown-link item"
-					:class="{ 'm-mobile-hide': mobileHide, 'active': $route.name === 'category' }">
-					<i class="idea icon"></i>分类<i class="caret down icon"></i>
+					:class="{ 'm-mobile-hide': mobileHide, 'active': route.name === 'category' }">
+					<i class="folder open icon"></i>分类<i class="caret down icon"></i>
 				</span>
 				<template v-slot:dropdown proper-class="">
 					<el-dropdown-menu>
@@ -26,22 +26,27 @@
 			</el-dropdown>
 
 			<router-link to="/archives" class="item"
-				:class="{ 'm-mobile-hide': mobileHide, 'active': $route.name === 'archives' }">
+				:class="{ 'm-mobile-hide': mobileHide, 'active': route.name === 'archives' }">
 				<i class="clone icon"></i>归档
 			</router-link>
 
 			<router-link to="/moments" class="item"
-				:class="{ 'm-mobile-hide': mobileHide, 'active': $route.name === 'moments' }">
+				:class="{ 'm-mobile-hide': mobileHide, 'active': route.name === 'moments' }">
 				<i class="comment alternate outline icon"></i>动态
 			</router-link>
 
-			<router-link to="/friends" class="item"
+			<!-- <router-link to="/friends" class="item"
 				:class="{ 'm-mobile-hide': mobileHide, 'active': $route.name === 'friends' }">
-				<i class="users icon"></i>友人帐
+				<i class="users icon"></i>友链
+			</router-link> -->
+
+			<router-link to="/tools" class="item"
+				:class="{ 'm-mobile-hide': mobileHide, 'active': route.name === 'tools' }">
+				<i class="hand peace icon"></i>工具箱
 			</router-link>
 
 			<router-link to="/about" class="item"
-				:class="{ 'm-mobile-hide': mobileHide, 'active': $route.name === 'about' }">
+				:class="{ 'm-mobile-hide': mobileHide, 'active': route.name === 'about' }">
 				<i class="info icon"></i>关于我
 			</router-link>
 
@@ -65,90 +70,100 @@
 </template>
 
 <script>
-import { getSearchBlogList } from "@/api/blog";
-import { mapState } from 'vuex'
+import { onMounted, ref, watch } from "vue";
+import { useRoute, useRouter } from "vue-router";
+import { useSiteStore } from "@/stores/site";
+import { getSearchBlogListService } from "@/api/blog";
+import { ElMessage } from "element-plus";
 
 export default {
 	name: "blogNav",
 	props: {
-		blogName: {
-			type: String,
-			required: true
-		},
 		categoryList: {
 			type: Array,
 			required: true
 		},
 	},
-	data() {
-		return {
-			mobileHide: true,
-			queryString: '',
-			queryResult: [],
-			timer: null,
-			popperClass: ''
-		}
-	},
-	computed: {
-		...mapState(['clientSize']),
-	},
-	watch: {
-		//路由改变时，收起导航栏
-		'$route.path'() {
-			this.mobileHide = true
-		},
-		'$route.name'() {
-			this.updatePopperClass()
-		}
-	},
-	mounted() {
-		// 挂载时根据路由名称更新popperClass
-		this.updatePopperClass()
-		//监听页面滚动位置，改变导航栏的显示
-		window.addEventListener('scroll', () => {
-			//首页且不是移动端
-			if (this.$route.name === 'home' && this.clientSize.clientWidth > 768) {
-				// 页面滚动距离大于导航栏高度的一半，导航栏背景才会变黑，否则透明
-				if (window.scrollY > this.clientSize.clientHeight / 2) {
-					this.$refs.nav.classList.remove('transparent')
-					this.popperClass = 'default-popper'
-				} else {
-					this.$refs.nav.classList.add('transparent')
-					this.popperClass = 'transparent-popper'
-				}
-			}
+	setup() {
+		const siteStore = useSiteStore()
+		const route = useRoute()
+		const router = useRouter()
+
+		// 路由改变时，收起导航栏
+		const mobileHide = ref(true)
+		// 创建了一个返回 route.path 的计算属性（getter）,作为watch的依赖项
+		watch(() => route.path, () => {
+			mobileHide.value = true
 		})
-		//监听点击事件，收起导航菜单
-		document.addEventListener('click', (e) => {
-			//遍历冒泡
-			let flag = e.path.some(item => {
-				if (item === this.$refs.nav) return true
-			})
-			//如果导航栏是打开状态，且点击的元素不是Nav的子元素，则收起菜单
-			if (!this.mobileHide && !flag) {
-				this.mobileHide = true
-			}
-		})
-	},
-	methods: {
-		updatePopperClass() {
-			if (this.$route.name === 'home' && this.clientSize.clientWidth > 768) {
-				this.popperClass = 'transparent-popper';
-			} else {
-				this.popperClass = 'default-popper';
-			}
-		},
-		toggle() {
+		// 点击菜单按钮，展开或收起导航栏
+		function toggle() {
 			this.mobileHide = !this.mobileHide
-		},
-		categoryRoute(name) {
-			this.$router.push(`/category/${name}`)
-		},
-		debounceQuery(queryString, callback) {
-			this.timer && clearTimeout(this.timer)
-			this.timer = setTimeout(() => this.querySearchAsync(queryString, callback), 1000)
-		},
-		querySearchAsync(queryString, callback) {
+		}
+
+		// 根据路由名称更新popperClass （导航栏背景颜色）
+		const popperClass = ref('')
+		function updatePopperClass() {
+			if (route.name === 'home' && siteStore.clientSize.clientWidth > 768) {
+				popperClass.value = 'transparent-popper';
+			} else {
+				popperClass.value = 'm-black-bg';
+			}
+		}
+		watch(() => route.name, () => {
+			updatePopperClass()
+		})
+		onMounted(() => {
+			updatePopperClass()
+		})
+
+		// 导航栏的显示随页面滚动发生改变
+		const nav = ref(null)
+		onMounted(() => {
+			//监听页面滚动位置，改变导航栏的显示
+			window.addEventListener('scroll', () => {
+				//首页且不是移动端
+				if (route.name === 'home' && siteStore.clientSize.clientWidth > 768) {
+					// 页面滚动距离大于导航栏高度的一半，导航栏背景才会变黑，否则透明
+					if (window.scrollY > siteStore.clientSize.clientHeight / 2) {
+						nav.value.classList.remove('transparent')
+						popperClass.value = 'm-black-bg'
+					} else {
+						nav.value.classList.add('transparent')
+						popperClass.value = 'transparent-popper'
+					}
+				}
+			})
+		})
+
+		// 点击其它位置收起下拉菜单
+		onMounted(() => {
+			//监听点击事件，收起导航菜单
+			document.addEventListener('click', (e) => {
+				//遍历冒泡，检查点击的元素是否是Nav的子元素（检查路径中是否包含导航栏元素前缀）
+				let flag = e.composedPath().some(item => {
+					if (item === nav.value) return true
+				})
+				//如果导航栏是打开状态，且点击的元素不是Nav的子元素，则收起菜单
+				if (!mobileHide.value && !flag) {
+					mobileHide.value = true
+				}
+			})
+		})
+
+		// 分类下拉菜单点击跳转
+		function categoryRoute(name) {
+			router.push(`/category/${name}`)
+		}
+
+		// 搜索框
+		const queryString = ref('')
+		const queryResult = ref([])
+		const timer = ref(null)
+		function debounceQuery(queryString, callback) {
+			timer.value && clearTimeout(timer.value)
+			timer.value = setTimeout(() => querySearchAsync(queryString, callback), 1000)
+		}
+		function querySearchAsync(queryString, callback) {
 			if (queryString == null
 				|| queryString.trim() === ''
 				|| queryString.indexOf('%') !== -1
@@ -159,22 +174,45 @@ export default {
 				|| queryString.trim().length > 20) {
 				return
 			}
-			getSearchBlogList(queryString).then(res => {
+			// 发送获取搜索结果请求
+			getSearchBlogListService(queryString).then(res => {
 				if (res.code === 200) {
-					this.queryResult = res.data
-					if (this.queryResult.length === 0) {
-						this.queryResult.push({ title: '无相关搜索结果' })
+					queryResult.value = res.data
+					if (queryResult.value.length === 0) {
+						queryResult.value.push({ title: '无相关搜索结果' })
 					}
-					callback(this.queryResult)
+					callback(queryResult.value)
 				}
 			}).catch(() => {
-				this.msgError("请求失败")
+				ElMessage.error("请求失败")
 			})
-		},
-		handleSelect(item) {
+		}
+		// 点击搜索结果跳转到博客详情页
+		function handleSelect(item) {
 			if (item.id) {
-				this.$router.push(`/blog/${item.id}`)
+				router.push(`/blog/${item.id}`)
 			}
+		}
+
+
+		return {
+			siteStore,
+			route,
+			router,
+
+			nav,
+			popperClass,
+
+			mobileHide,
+			queryString,
+			queryResult,
+			timer,
+
+			toggle,
+			categoryRoute,
+			debounceQuery,
+			querySearchAsync,
+			handleSelect,
 		}
 	}
 }
@@ -239,9 +277,6 @@ export default {
 	background-color: transparent !important;
 }
 
-.default-popper {
-	background-color: rgba(0, 0, 0, 0.9) !important;
-}
 
 .el-popper {
 	border: 1px solid rgba(255, 255, 255, 0.514) !important;

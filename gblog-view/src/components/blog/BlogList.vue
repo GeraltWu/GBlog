@@ -1,36 +1,35 @@
 <template>
 	<div>
 		<!--content-->
-		<BlogItem :blogList="blogList" v-viewer/>
+		<BlogItem :blogList="blogList" v-viewer />
 		<!--分页-->
-		<Pagination :getBlogList="getBlogList" :totalPage="totalPage"/>
+		<Pagination :getBlogList="getBlogList" :totalPage="totalPage" />
 	</div>
 </template>
 
 <script>
-	import BlogItem from "./BlogItem";
-	import Pagination from "./Pagination";
+import BlogItem from "./BlogItem";
+import Pagination from "./Pagination";
 
-	export default {
-		name: "BlogList",
-		components: {Pagination, BlogItem},
-		props: {
-			getBlogList: {
-				type: Function,
-				required: true
-			},
-			blogList: {
-				type: Array,
-				required: true
-			},
-			totalPage: {
-				type: Number,
-				required: true
-			}
+export default {
+	name: "BlogList",
+	components: { Pagination, BlogItem },
+	props: {
+		getBlogList: {
+			type: Function,
+			required: true
+		},
+		// 这里的blogList仍是空的
+		blogList: {
+			type: Array,
+			required: true
+		},
+		totalPage: {
+			type: Number,
+			required: true
 		}
 	}
+}
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

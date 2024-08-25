@@ -1,6 +1,6 @@
 import axios from '@/plugins/axios'
 
-export function login(loginForm) {
+export function loginService(loginForm) {
 	return axios({
 		url: 'login',
 		method: 'POST',

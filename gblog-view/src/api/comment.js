@@ -1,6 +1,6 @@
 import axios from '@/plugins/axios'
 
-export function getCommentListByQuery(token, query) {
+export function getCommentListByQueryService(token, query) {
 	return axios({
 		url: 'comments',
 		method: 'GET',
@@ -13,7 +13,7 @@ export function getCommentListByQuery(token, query) {
 	})
 }
 
-export function submitComment(token, form) {
+export function submitCommentService(token, form) {
 	return axios({
 		url: 'comment',
 		method: 'POST',

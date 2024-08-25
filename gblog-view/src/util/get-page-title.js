@@ -1,13 +1,20 @@
-import store from '@/store'
+import { useSiteStore } from '@/stores/site'
+import { ref } from 'vue'
 
 export default function getPageTitle(pageTitle) {
-	const title = store.state.siteInfo.webTitleSuffix
+	const siteStore = useSiteStore()
+	const title = ref('')
+	if (siteStore.siteInfo.webTitleSuffix){
+		title.value = siteStore.siteInfo.webTitleSuffix
+	}else{
+		title.value = ''
+	}
 
 	if (pageTitle) {
-		if (title) {
-			return `${pageTitle}${title}`
+		if (title.value) {
+			return `${pageTitle}${title.value}`
 		}
 		return pageTitle
 	}
-	return title
+	return title.value
 }

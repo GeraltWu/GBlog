@@ -1,6 +1,6 @@
 import axios from '@/plugins/axios'
 
-export function getBlogById(token, id) {
+export function getBlogByIdService(token, id) {
 	return axios({
 		url: 'blog',
 		method: 'GET',
@@ -13,7 +13,7 @@ export function getBlogById(token, id) {
 	})
 }
 
-export function checkBlogPassword(blogPasswordForm) {
+export function checkBlogPasswordService(blogPasswordForm) {
 	return axios({
 		url: 'checkBlogPassword',
 		method: 'POST',
@@ -23,9 +23,9 @@ export function checkBlogPassword(blogPasswordForm) {
 	})
 }
 
-export function getSearchBlogList(query) {
+export function getSearchBlogListService(query) {
 	return axios({
-		url: 'searchBlog',
+		url: 'getSearchBlogList',
 		method: 'GET',
 		params: {
 			query

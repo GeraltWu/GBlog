@@ -1,6 +1,6 @@
 import axios from '@/plugins/axios'
 
-export function getArchives() {
+export function getArchivesService() {
 	return axios({
 		url: 'archives',
 		method: 'GET'

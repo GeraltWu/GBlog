@@ -2,7 +2,8 @@
 	<div>
 		<div class="ui top attached segment m-padded-lr-big">
 			<h2 class="m-text-500" style="text-align: center">{{ about.title }}</h2>
-			<meting-js server="netease" type="song" :id="about.musicId" theme="#25CCF7" v-if="about.musicId!==''"></meting-js>
+			<meting-js server="netease" type="song" :id="about.musicId" theme="#25CCF7" autoplay="false" v-if="about.musicId!==''"></meting-js>
+			<!-- <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1946926778&auto=1&height=66"></iframe> -->
 			<div class="typo content m-margin-top-large" v-viewer v-html="about.content"></div>
 		</div>
 		<!--评论-->
@@ -16,8 +17,9 @@
 <script setup> //setup语法糖，无需手动调用setup函数，无需使用return将变量和数据暴露给template。
 import { defineProps } from 'vue';
 import { ref, onMounted } from 'vue';
-import { getAbout } from "@/api/about";
+import { getAboutService } from "@/api/about";
 import CommentList from "@/components/comment/CommentList";
+import { ElMessage } from "element-plus";
 
 defineProps({
 	name: "blogAbout",
@@ -31,29 +33,20 @@ const about = ref({
 	commentEnabled: 'false'
 })
 
-// const getData = async () => {
-// 	console.log('发送请求');
-// 	const res = await getAbout();
-// 	console.log(res);
-// 	about.value = res.data;
-// }
 const getData = () => {
-	getAbout().then(res => {
+	getAboutService().then(res => {
 		if (res.code === 200) {
 			about.value = res.data;
-			console.log(res.data);
-
 		} else {
-			// msgError(res.msg);
-			console.log(res.msg);
+			ElMessage.error(res.msg);
 		}
 	}).catch(() => {
-		// msgError("请求失败");
-		console.log("请求失败");
+		ElMessage.error("请求失败");
 	});
 }
 onMounted(() => {
 	getData();
+
 })
 
 
@@ -64,4 +57,5 @@ onMounted(() => {
 	.content ul li {
 		letter-spacing: 1px !important;
 	}
+
 </style>

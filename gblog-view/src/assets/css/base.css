@@ -4,7 +4,7 @@ body,
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color: #efefef;
+    background-color: #aab7c1;
     background-attachment: fixed;
     background-size: cover;
     background-position: left top;
@@ -17,15 +17,17 @@ body,
     text-shadow: none !important;
 }
 
+/* 浏览器滚动条样式 */
+
 body::-webkit-scrollbar {
     width: 8px;
     height: 5px;
 }
 
 body::-webkit-scrollbar-thumb {
-    -webkit-box-shadow: inset 0 0 6px #48dbfb;
-    box-shadow: inset 0 0 6px #48dbfb;
-    background-color: #48dbfb;
+    -webkit-box-shadow: inset 0 0 6px #77b17c;
+    box-shadow: inset 0 0 6px #77b17c;
+    background-color: #77b17c;
 }
 
 body::-webkit-scrollbar-track {
@@ -38,6 +40,7 @@ body::-webkit-scrollbar-track-piece {
     background-color: transparent;
 }
 
+/* 复制到剪贴板按钮的样式。 */
 #app ::-webkit-scrollbar-track {
     background: transparent;
 }
@@ -48,9 +51,10 @@ body::-webkit-scrollbar-track-piece {
 }
 
 .copy-to-clipboard-button span {
-    background: rgb(239 239 239 / 31%) !important;
+    background: rgba(255, 255, 255, 0.31) !important;
 }
 
+/* 用于去除输入框的默认外观 */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -64,6 +68,25 @@ footer {
     font-family: 'Varela Round', "Microsoft YaHei", "Source Sans Pro", "Helvetica Neue", Menlo, Monaco, monospace, "Lucida Console", sans-serif, Helvetica, "Hiragino Sans GB", "Hiragino Sans GB W3", Source Han Sans CN Regular, WenQuanYi Micro Hei, Arial, sans-serif;
 }
 
+/* 分页样式 */
+.el-pagination.is-background .btn-next,
+.el-pagination.is-background .btn-prev,
+.el-pagination.is-background .el-pager li {
+	background-color: #ffffff !important;
+}
+
+.el-pagination.is-background .el-pager li:not(.disabled).active {
+	background-color: #3073b7 !important;
+}
+.el-pagination.is-background{
+	justify-content: center;/* 将flex子元素居中对齐 */
+}
+.el-pagination.is-background .el-pager li.is-active{
+	background-color: #477aae !important;
+	color: #ffffff !important;
+}
+
+/* 预设margin和padding类型 */
 .m-margin-small {
     margin: 3px 10px !important;
 }
@@ -127,6 +150,7 @@ footer {
     padding-left: 2em !important;
     padding-right: 2em !important;
 }
+
 
 .m-right-top {
     position: absolute;
@@ -218,12 +242,44 @@ footer {
 }
 
 /*-----color-----*/
-.m-black {
-    color: #333 !important;
+
+.m-blue-bg {
+    background-color: #3d84a8 !important;
 }
 
+.m-green-bg {
+    background-color: #00adb5 !important
+}
+
+.m-grey1-bg {
+    background-color: #f0f5f9 !important;
+}
+.m-grey2-bg{
+    background-color: #aab7c1 !important;
+}
+.m-grey3-bg{
+    background-color: #52616b !important;
+}
+.m-grey4-bg{
+    background-color: #393e46 !important;
+}
+
+.m-black-bg {
+    background-color: #272927 !important;
+}
 .m-blue {
-    color: #48dbfb !important;
+    color: #2895cb !important;
+}
+
+.m-green {
+    color: #2cc34c !important
+}
+.m-black {
+    color: #000000 !important;
+}
+
+.m-white {
+    color: #ffffff !important;
 }
 
 .m-scaleup {
@@ -242,8 +298,9 @@ footer {
     padding-right: 1rem !important;
 }
 
+/* 所有的时间显示 */
 .m-datetime {
-    color: #00a7e0 !important;
+    color: #4aaccd !important;
 }
 
 .m-datetime * {
@@ -254,8 +311,9 @@ footer {
     margin-right: 3px !important;
 }
 
+/* 所有的浏览次数显示 */
 .m-views {
-    color: #ff3f1f !important;
+    color: #e02525 !important;
 }
 
 .m-views * {
@@ -266,6 +324,7 @@ footer {
     margin-right: 3px !important;
 }
 
+/* 纯黑 */
 .m-common-black {
     color: #000 !important;
 }
@@ -284,43 +343,6 @@ footer {
 
 .m-big-fontsize p, .m-big-fontsize ul, .m-big-fontsize ol {
     font-size: 17px !important;
-}
-
-/*-----------------------Button--------------------------*/
-.color-btn {
-    text-decoration: none;
-    position: relative;
-    top: 10%;
-    margin: 0 auto;
-    font-size: 13px;
-    background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
-    background-size: 400%;
-    width: 7em;
-    height: 3em;
-    line-height: 38px;
-    text-align: center;
-    color: #fff;
-    text-transform: capitalize;
-    border-radius: 50px;
-}
-
-.color-btn::before {
-    content: "";
-    position: absolute;
-    left: -5px;
-    top: -5px;
-    right: -5px;
-    bottom: -5px;
-    background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
-    background-size: 400%;
-    border-radius: 50px;
-    filter: blur(20px);
-    z-index: -1;
-}
-
-.color-btn:hover::before,
-.color-btn:hover {
-    animation: sun 8s infinite;
 }
 
 @keyframes sun {
