@@ -28,6 +28,7 @@ export default defineConfig(({ command, mode }) => {
 
     // 解决跨域问题，使用代理将域名换为目标api的域名，这下就同域了
     server: { // byd我花了半小时时间排查出server单词拼错的问题
+      port: 8091,
       proxy: {
         '/api': {
           // apifox的接口地址好像不跨域，不知道为什么

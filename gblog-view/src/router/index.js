@@ -12,6 +12,7 @@ const routes = [
 		path: '/',
 		component: () => import('@/views/Index'),
 		redirect: '/home',
+		// 因为这些动态加载组件都是在index组件里面，属于index的子组件，所以这里的路由要写在index的children里面
 		children: [
 			{
 				path: '/home',
