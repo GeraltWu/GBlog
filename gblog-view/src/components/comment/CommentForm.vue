@@ -13,13 +13,28 @@
 				<div class="mask" v-show="emojiShow" @click="hideEmojiBox"></div>
 				<!-- 表情选择框 -->
 				<div class="emoji-box" v-show="emojiShow">
+					<!-- 表情选择框标题 -->
 					<div class="emoji-title">
-						<span>{{ activeEmojiTab === 0 ? '贴吧' : '没别的了' }}</span>
+						<span>{{ ['贴吧', 'Mygo', '闺泣'][activeEmojiTab] }}</span>
 					</div>
 					<!-- 表情展示栏 -->
 					<div class="emoji-wrap" v-show="activeEmojiTab === 0">
 						<!-- 点击表情插入textarea -->
-						<div class="emoji-list" v-for="(img, index) in tiebaMapper" :key="index"
+						<div class="emoji-list-sm" v-for="(img, index) in tiebaMapper" :key="index"
+							@click="insertEmoji(img.name)">
+							<img :src="img.src" :title="img.name">
+						</div>
+					</div>
+					<div class="emoji-wrap" v-show="activeEmojiTab === 1">
+						<!-- 点击表情插入textarea -->
+						<div class="emoji-list-lg" v-for="(img, index) in MygoMapper" :key="index"
+							@click="insertEmoji(img.name)">
+							<img :src="img.src" :title="img.name">
+						</div>
+					</div>
+					<div class="emoji-wrap" v-show="activeEmojiTab === 2">
+						<!-- 点击表情插入textarea -->
+						<div class="emoji-list-lg" v-for="(img, index) in gbcMapper" :key="index"
 							@click="insertEmoji(img.name)">
 							<img :src="img.src" :title="img.name">
 						</div>
@@ -27,10 +42,15 @@
 
 					<!-- 表情菜单 -->
 					<div class="emoji-tabs">
-						<a class="tab-link" :class="{ 'on': activeEmojiTab === 0 }" @click="activeEmojiTab = 2">
+						<a class="tab-link" :class="{ 'on': activeEmojiTab === 0 }" @click="activeEmojiTab = 0">
 							<img src="/img/tieba/1.png">
 						</a>
-
+						<a class="tab-link" :class="{ 'on': activeEmojiTab === 1 }" @click="activeEmojiTab = 1">
+							<img src="/img/Mygo/Mygo_让我看看.png">
+						</a>
+						<a class="tab-link" :class="{ 'on': activeEmojiTab === 2 }" @click="activeEmojiTab = 2">
+							<img src="/img/gbc/gbc_哭泣.png">
+						</a>
 					</div>
 				</div>
 			</div>
@@ -84,6 +104,8 @@
 import { useCommentStore } from '@/stores/comment';
 import { checkEmail, checkUrl } from "@/common/reg";
 import tiebaMapperJson from '@/plugins/tiebaMapper.json';
+import gbcMapperJson from '@/plugins/gbcMapper.json';
+import MygoMapperJson from '@/plugins/MygoMapper.json';
 import { ref, nextTick, onMounted } from 'vue';
 import { ElMessage } from 'element-plus';
 
@@ -146,6 +168,9 @@ export default {
 		const emojiShow = ref(false)
 		const activeEmojiTab = ref(0)
 		const tiebaMapper = ref([])
+		const gbcMapper = ref([])
+		const MygoMapper = ref([])
+
 		const showEmojiBox = () => {
 			start.value = textarea.value.selectionStart
 			end.value = textarea.value.selectionEnd
@@ -171,6 +196,8 @@ export default {
 		}
 		onMounted(() => {
 			tiebaMapper.value = tiebaMapperJson
+			gbcMapper.value = gbcMapperJson
+			MygoMapper.value = MygoMapperJson
 		})
 
 		return {
@@ -186,6 +213,8 @@ export default {
 			emojiShow,
 			activeEmojiTab,
 			tiebaMapper,
+			gbcMapper,
+			MygoMapper,
 			showEmojiBox,
 			insertEmoji,
 			hideEmojiBox
@@ -259,7 +288,7 @@ export default {
 	border: 1px solid #E5E9EF;
 	box-shadow: 0 11px 12px 0 rgba(106, 115, 133, 0.3);
 	border-radius: 8px;
-	width: 340px;
+	width: 400px;
 	position: absolute;
 	top: 40px;
 	z-index: 100;
@@ -283,8 +312,8 @@ export default {
 	word-break: break-word;
 }
 
-.emoji-box .emoji-wrap .emoji-list {
-	height: 33px;
+.emoji-box .emoji-wrap .emoji-list-lg {
+	height: 72px;
 	color: #111;
 	border-radius: 4px;
 	transition: background 0.2s;
@@ -293,14 +322,34 @@ export default {
 	cursor: pointer;
 }
 
-.emoji-box .emoji-wrap .emoji-list:hover {
+.emoji-box .emoji-wrap .emoji-list-lg:hover {
 	background-color: #ddd;
 }
 
-.emoji-box .emoji-wrap .emoji-list img {
+.emoji-box .emoji-wrap .emoji-list-lg img {
 	margin: 4px;
-	width: 25px;
-	height: 25px;
+	width: 64px;
+	height: 64px;
+}
+
+.emoji-box .emoji-wrap .emoji-list-sm {
+	height: 40px;
+	color: #111;
+	border-radius: 4px;
+	transition: background 0.2s;
+	display: inline-block;
+	outline: 0;
+	cursor: pointer;
+}
+
+.emoji-box .emoji-wrap .emoji-list-sm:hover {
+	background-color: #ddd;
+}
+
+.emoji-box .emoji-wrap .emoji-list-sm img {
+	margin: 4px;
+	width: 32px;
+	height: 32px;
 }
 
 .emoji-box .emoji-tabs {

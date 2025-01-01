@@ -3,7 +3,7 @@ export default {
 	 * @type {string}
 	 * @description 首页三张背景图
 	 */
-	bg1: '/img/Ciri1.png',
+	bg1: '/img/ditf_1.png',
 	bg2: '/img/Ciri2.png',
 	bg3: '/img/Ciri4.png',
 

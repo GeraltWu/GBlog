@@ -23,4 +23,10 @@
 	font-weight: normal;
 	font-style: normal;
 }
+@font-face {
+	font-family: 'Frizon';
+	src: url('@/assets/fonts/Frizon-2.ttf') format('TrueType');
+	font-weight: normal;
+	font-style: normal;
+}
 </style>

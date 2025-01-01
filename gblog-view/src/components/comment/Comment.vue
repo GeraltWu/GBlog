@@ -57,15 +57,15 @@
 							<div v-html="reply.content"></div>
 						</div>
 						<div class="actions">
-							<a class="reply" @click="setReply(comment.id)">回复</a>
+							<a class="reply" @click="setReply(reply.id)">回复</a>
 						</div>
 					</div>
-					<!-- 如果要回复的是评论的回复，那么在这里提供一个评论表单 -->
-					<CommentForm v-if="commentStore.parentCommentId === reply.id" />
+									<!-- 如果要回复的是评论的回复，那么在这里提供一个评论表单 -->
+				<CommentForm v-if="commentStore.parentCommentId === reply.id" />
 				</div>
+
 			</div>
 			<div class="border"></div>
-
 		</div>
 
 

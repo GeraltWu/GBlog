@@ -4,11 +4,24 @@ body,
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color: #aab7c1;
+    background-color: #262c3a;
     background-attachment: fixed;
     background-size: cover;
     background-position: left top;
     background-repeat: no-repeat;
+}
+
+:root {
+    --blue-color: #0096cb;
+    --red-color: #e13b1b;
+    --green-color: #2cc34c;
+    --black-color: #272927;
+    --white-color: #ffffff;
+    --grey1-color: #f0f5f9;
+    --grey2-color: #aab7c1;
+    --grey3-color: #52616b;
+    --grey4-color: #393e46;
+    /* 其他需要的颜色变量 */
 }
 
 ::selection {
@@ -25,9 +38,9 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-thumb {
-    -webkit-box-shadow: inset 0 0 6px #77b17c;
-    box-shadow: inset 0 0 6px #77b17c;
-    background-color: #77b17c;
+    -webkit-box-shadow: inset 0 0 6px var(--red-color);
+    box-shadow: inset 0 0 6px var(--blue-color);
+    background-color: var(--blue-color);
 }
 
 body::-webkit-scrollbar-track {
@@ -76,13 +89,13 @@ footer {
 }
 
 .el-pagination.is-background .el-pager li:not(.disabled).active {
-	background-color: #3073b7 !important;
+	background-color: var(--blue-color) !important;
 }
 .el-pagination.is-background{
 	justify-content: center;/* 将flex子元素居中对齐 */
 }
 .el-pagination.is-background .el-pager li.is-active{
-	background-color: #477aae !important;
+	background-color: var(--blue-color) !important;
 	color: #ffffff !important;
 }
 
@@ -160,8 +173,8 @@ footer {
 
 /*------shadow------*/
 .m-shadow-small {
-    -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+    -webkit-box-shadow: 0 4px 8px var(--blue-color) !important;
+    box-shadow: 0 4px 8px var(--blue-color) !important;
 }
 
 .m-mobile-show {
@@ -225,14 +238,15 @@ footer {
 
 .m-box {
     transition: all 0.25s ease 0s, opacity 0.6s cubic-bezier(0.5, 0, 0, 1) 0s !important;
+    box-shadow: 4px 6px 0px 0px var(--blue-color) !important;
 }
 
 .m-box:hover {
-    box-shadow: 0 1px 2px 0px rgba(0, 0, 0, 0.2), 0 2px 4px 0px rgba(0, 0, 0, 0.2), 0 4px 8px 0px rgba(0, 0, 0, 0.2), 0 8px 16px 0px rgba(0, 0, 0, 0.2) !important;
+    box-shadow: -4px -6px 0px 0px var(--red-color) !important;
 }
 
 .m-box:active {
-    box-shadow: 0 1px 2px 0px rgba(72, 219, 251, 0.3), 0 2px 4px 0px rgba(72, 219, 251, 0.3), 0 4px 8px 0px rgba(72, 219, 251, 0.3), 0 8px 16px 0px rgba(72, 219, 251, 0.3) !important;
+    box-shadow: 4px 6px 0px 0px var(--red-color) !important;
 }
 
 @media (max-width: 768px) {
@@ -244,42 +258,55 @@ footer {
 /*-----color-----*/
 
 .m-blue-bg {
-    background-color: #3d84a8 !important;
+    background-color: var(--blue-color) !important;
+}
+
+.m-red-bg {
+    background-color: var(--red-color) !important;
 }
 
 .m-green-bg {
-    background-color: #00adb5 !important
+    background-color: var(--green-color) !important;
 }
 
 .m-grey1-bg {
-    background-color: #f0f5f9 !important;
+    background-color: var(--grey1-color) !important;
 }
-.m-grey2-bg{
-    background-color: #aab7c1 !important;
+
+.m-grey2-bg {
+    background-color: var(--grey2-color) !important;
 }
-.m-grey3-bg{
-    background-color: #52616b !important;
+
+.m-grey3-bg {
+    background-color: var(--grey3-color) !important;
 }
-.m-grey4-bg{
-    background-color: #393e46 !important;
+
+.m-grey4-bg {
+    background-color: var(--grey4-color) !important;
 }
 
 .m-black-bg {
-    background-color: #272927 !important;
+    background-color: var(--black-color) !important;
 }
+
 .m-blue {
-    color: #2895cb !important;
+    color: var(--blue-color) !important;
+}
+
+.m-red {
+    color: var(--red-color) !important;
 }
 
 .m-green {
-    color: #2cc34c !important
+    color: var(--green-color) !important;
 }
+
 .m-black {
-    color: #000000 !important;
+    color: var(--black-color) !important;
 }
 
 .m-white {
-    color: #ffffff !important;
+    color: var(--white-color) !important;
 }
 
 .m-scaleup {
@@ -290,17 +317,9 @@ footer {
     transform: scale(1.1) !important;
 }
 
-.ribbon.label {
-    max-height: 30px;
-    margin-bottom: 15px !important;
-    left: -46px !important;
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
-}
-
 /* 所有的时间显示 */
 .m-datetime {
-    color: #4aaccd !important;
+    color: #0096cb !important;
 }
 
 .m-datetime * {
@@ -313,7 +332,7 @@ footer {
 
 /* 所有的浏览次数显示 */
 .m-views {
-    color: #e02525 !important;
+    color: #e13b1b !important;
 }
 
 .m-views * {
@@ -355,3 +374,4 @@ footer {
     width: 25px;
     vertical-align: bottom;
 }
+

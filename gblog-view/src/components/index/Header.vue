@@ -146,12 +146,12 @@ header.moving .bg2 {
 .cyberpunk {
 	text-align: center;
 	height: 150;
-	font-size: 150px;
-	font-family: 'facon';
-	text-shadow: -3px -3px 0px #cbc506d0, 3px 3px 0px #00E6F6;
-	opacity: 0.6;
+	font-size: 180px;
+	font-family: 'Frizon';
+	text-shadow: -3px -3px 0px #e13b1b, 9px 3px 0px #e13b1b;
+	opacity: 0.9;
 	border: 0;
-	color: #fff700;
+	color: #0096cb;
 	letter-spacing: 3px;
 	line-height: 160px;
 	position: relative;
@@ -173,7 +173,7 @@ header.moving .bg2 {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	text-shadow: -3px -3px 0px #F8F005, 3px 3px 0px #00E6F6;
+	text-shadow: -3px -3px 0px #ffffff, 3px 3px 0px var(--red-color);
 	clip-path: var(--slice-0);
 
 	animation: 1.2s glitch infinite;
@@ -389,6 +389,7 @@ header.moving .bg2 {
 	opacity: 0.5;
 	cursor: pointer;
 	position: absolute;
+	color: var(--white-color);
 	top: 55px;
 	left: 20px;
 	animation: opener .5s ease-in-out alternate infinite;
@@ -410,7 +411,7 @@ header.moving .bg2 {
 	bottom: 0;
 	width: 100%;
 	height: 60px;
-	background: linear-gradient(0deg, #aab7c1, #ffffff00);
+	background: linear-gradient(0deg, #262c3a, #ffffff00);
 }
 
 /* .wave1,

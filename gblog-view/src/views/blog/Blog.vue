@@ -34,7 +34,7 @@
 						</div>
 					</div>
 					<!--分类-->
-					<router-link :to="`/category/${blog.category.name}`" class="ui teal large ribbon label"
+					<router-link :to="`/category/${blog.category.name}`" class="ui red large ribbon label"
 						v-if="blog.category">
 						<i class="small folder open icon"></i><span class="m-text-500">{{ blog.category.name }}</span>
 					</router-link>
@@ -215,5 +215,13 @@ h6::before {
 	height: 55px;
 	margin-top: -55px;
 	visibility: hidden;
+}
+
+.ribbon.label {
+    max-height: 30px;
+    margin-bottom: 10px !important;
+    left: -45px !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
 }
 </style>

@@ -1,0 +1,103 @@
+[
+    {
+        "src": "/img/Mygo/Mygo_不要吵架.png",
+        "name": "@[Mygo_不要吵架]",
+        "reg": "@\\[Mygo_不要吵架\\]"
+    },
+    {
+        "src": "/img/Mygo/Mygo_创作中.png",
+        "name": "@[Mygo_创作中]",
+        "reg": "@\\[Mygo_创作中\\]"
+    },
+    {
+        "src": "/img/Mygo/Mygo_害羞.png",
+        "name": "@[Mygo_害羞]",
+        "reg": "@\\[Mygo_害羞\\]"
+    },
+    {
+        "src": "/img/Mygo/Mygo_忧郁.png",
+        "name": "@[Mygo_忧郁]",
+        "reg": "@\\[Mygo_忧郁\\]"
+    },
+    {
+        "src": "/img/Mygo/Mygo_生气.png",
+        "name": "@[Mygo_生气]",
+        "reg": "@\\[Mygo_生气\\]"
+    },
+    {
+        "src": "/img/Mygo/Mygo_探头.png",
+        "name": "@[Mygo_探头]",
+        "reg": "@\\[Mygo_探头\\]"
+    },
+    {
+        "src": "/img/Mygo/Mygo_Love.png",
+        "name": "@[Mygo_Love]",
+        "reg": "@\\[Mygo_Love\\]"
+    },
+    {
+        "src": "/img/Mygo/Mygo_不会吧？.png",
+        "name": "@[Mygo_不会吧？]",
+        "reg": "@\\[Mygo_不会吧？\\]"
+    },
+    {
+        "src": "/img/Mygo/Mygo_大哭.png",
+        "name": "@[Mygo_大哭]",
+        "reg": "@\\[Mygo_大哭\\]"
+    },
+    {
+        "src": "/img/Mygo/Mygo_发送消息.png",
+        "name": "@[Mygo_发送消息]",
+        "reg": "@\\[Mygo_发送消息\\]"
+    },
+    {
+        "src": "/img/Mygo/Mygo_为什么！.png",
+        "name": "@[Mygo_为什么！]",
+        "reg": "@\\[Mygo_为什么！\\]"
+    },
+    {
+        "src": "/img/Mygo/Mygo_让我看看.png",
+        "name": "@[Mygo_让我看看]",
+        "reg": "@\\[Mygo_让我看看\\]"
+    },
+    {
+        "src": "/img/Mygo/Mygo_刚睡醒.png",
+        "name": "@[Mygo_刚睡醒]",
+        "reg": "@\\[Mygo_刚睡醒\\]"
+    },
+    {
+        "src": "/img/Mygo/Mygo_抹茶芭菲.png",
+        "name": "@[Mygo_抹茶芭菲]",
+        "reg": "@\\[Mygo_抹茶芭菲\\]"
+    },
+
+    {
+        "src": "/img/Mygo/Mygo_有趣的女人.png",
+        "name": "@[Mygo_有趣的女人]",
+        "reg": "@\\[Mygo_有趣的女人\\]"
+    },
+    {
+        "src": "/img/Mygo/Mygo_溜了溜了.png",
+        "name": "@[Mygo_溜了溜了]",
+        "reg": "@\\[Mygo_溜了溜了\\]"
+    },
+    {
+        "src": "/img/Mygo/Mygo_哈？.png",
+        "name": "@[Mygo_哈？]",
+        "reg": "@\\[Mygo_哈？\\]"
+    },
+    {
+        "src": "/img/Mygo/Mygo_请点单.png",
+        "name": "@[Mygo_请点单]",
+        "reg": "@\\[Mygo_请点单\\]"
+    },
+    {
+        "src": "/img/Mygo/Mygo_那我呢？.png",
+        "name": "@[Mygo_那我呢？]",
+        "reg": "@\\[Mygo_那我呢？\\]"
+    },
+    {
+        "src": "/img/Mygo/Mygo_Block!.png",
+        "name": "@[Mygo_Block!]",
+        "reg": "@\\[Mygo_Block!\\]"
+    }
+]

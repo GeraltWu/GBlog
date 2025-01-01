@@ -6,6 +6,7 @@
 				<i class="arrow alternate circle up icon"></i>
 			</div>
 			<div class="ui middle aligned mobile reversed stackable">
+
 				<div class="ui grid m-margin-lr">
 					<!--标题-->
 					<div class="row m-padded-tb-small">
@@ -31,16 +32,16 @@
 							</div>
 						</div>
 					</div>
-					<!--分类-->
-					<router-link :to="`/category/${item.category.name}`" class="ui teal large ribbon label ">
-						<i class="small folder open icon"></i><span class="m-text-500">{{ item.category.name }}</span>
+									<!--分类-->
+									<router-link :to="`/category/${item.category.name}`" class="ui red large ribbon label ">
+						<i class="small folder open icon m-white"></i><span class="m-text-500 m-white">{{ item.category.name }}</span>
 					</router-link>
 					<!--文章Markdown描述-->
 					<div class="typo m-padded-tb-small line-numbers match-braces rainbow-braces"
 						v-html="item.description"></div>
 					<!--阅读全文按钮-->
 					<div class="row m-padded-tb-small m-margin-top" style="justify-content: center;">
-						<button class="ui inverted secondary button large " @click.prevent="toBlog(item)">阅读全文</button>
+						<button class="ui button large blue-button" @click.prevent="toBlog(item)">阅读全文</button>
 						<!-- <a href="javascript:;"  class="color-btn">阅读全文</a> -->
 					</div>
 					<!--横线-->
@@ -89,4 +90,23 @@ export default {
 /* .ui.large.ribbon.label {
 
 } */
+
+.ribbon.label {
+    max-height: 30px;
+    margin-bottom: 10px !important;
+    left: -45px !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+}
+
+.blue-button {
+    background-color: var(--blue-color); /* 选择你想要的蓝色 */
+    color: white; /* 确保文字颜色与背景色对比明显 */
+    border: none; /* 移除边框 */
+}
+
+.blue-button:hover {
+    background-color: var(--red-color); /* 鼠标悬停时的颜色 */
+	color: white; /* 确保文字颜色与背景色对比明显 */
+}
 </style>

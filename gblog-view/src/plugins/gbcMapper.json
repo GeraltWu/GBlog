@@ -1,0 +1,135 @@
+[
+    {
+        "src": "/img/gbc/gbc_倔.png",
+        "name": "@[gbc_倔]",
+        "reg": "@\\[gbc_倔\\]"
+    },
+    {
+        "src": "/img/gbc/gbc_坏笑.png",
+        "name": "@[gbc_坏笑]",
+        "reg": "@\\[gbc_坏笑\\]"
+    },
+    {
+        "src": "/img/gbc/gbc_愣住.png",
+        "name": "@[gbc_愣住]",
+        "reg": "@\\[gbc_愣住\\]"
+    },
+    {
+        "src": "/img/gbc/gbc_摇滚.png",
+        "name": "@[gbc_摇滚]",
+        "reg": "@\\[gbc_摇滚\\]"
+    },
+    {
+        "src": "/img/gbc/gbc_生气.png",
+        "name": "@[gbc_生气]",
+        "reg": "@\\[gbc_生气\\]"
+    },
+
+    {
+        "src": "/img/gbc/gbc_哈？.png",
+        "name": "@[gbc_哈？]",
+        "reg": "@\\[gbc_哈？\\]"
+    },
+    {
+        "src": "/img/gbc/gbc_哭泣.png",
+        "name": "@[gbc_哭泣]",
+        "reg": "@\\[gbc_哭泣\\]"
+    },
+    {
+        "src": "/img/gbc/gbc_开车.png",
+        "name": "@[gbc_开车]",
+        "reg": "@\\[gbc_开车\\]"
+    },
+    {
+        "src": "/img/gbc/gbc_哈哈.png",
+        "name": "@[gbc_哈哈]",
+        "reg": "@\\[gbc_哈哈\\]"
+    },
+    {
+        "src": "/img/gbc/gbc_噫.png",
+        "name": "@[gbc_噫]",
+        "reg": "@\\[gbc_噫\\]"
+    },
+
+    {
+        "src": "/img/gbc/gbc_wink.png",
+        "name": "@[gbc_wink]",
+        "reg": "@\\[gbc_wink\\]"
+    },
+    {
+        "src": "/img/gbc/gbc_乐.png",
+        "name": "@[gbc_乐]",
+        "reg": "@\\[gbc_乐\\]"
+    },
+    {
+        "src": "/img/gbc/gbc_吐舌.png",
+        "name": "@[gbc_吐舌]",
+        "reg": "@\\[gbc_吐舌\\]"
+    },
+    {
+        "src": "/img/gbc/gbc_献花.png",
+        "name": "@[gbc_献花]",
+        "reg": "@\\[gbc_献花\\]"
+    },
+    {
+        "src": "/img/gbc/gbc_沉默.png",
+        "name": "@[gbc_沉默]",
+        "reg": "@\\[gbc_沉默\\]"
+    },
+
+
+    {
+        "src": "/img/gbc/gbc_咬牙切齿.png",
+        "name": "@[gbc_咬牙切齿]",
+        "reg": "@\\[gbc_咬牙切齿\\]"
+    },
+    {
+        "src": "/img/gbc/gbc_害羞.png",
+        "name": "@[gbc_害羞]",
+        "reg": "@\\[gbc_害羞\\]"
+    },
+    {
+        "src": "/img/gbc/gbc_郁闷.png",
+        "name": "@[gbc_郁闷]",
+        "reg": "@\\[gbc_郁闷\\]"
+    },
+    {
+        "src": "/img/gbc/gbc_不行.png",
+        "name": "@[gbc_不行]",
+        "reg": "@\\[gbc_不行\\]"
+    },
+    {
+        "src": "/img/gbc/gbc_泪目.png",
+        "name": "@[gbc_泪目]",
+        "reg": "@\\[gbc_泪目\\]"
+    },
+
+
+
+    {
+        "src": "/img/gbc/gbc_嘲笑.png",
+        "name": "@[gbc_嘲笑]",
+        "reg": "@\\[gbc_嘲笑\\]"
+    },
+    {
+        "src": "/img/gbc/gbc_拜托.png",
+        "name": "@[gbc_拜托]",
+        "reg": "@\\[gbc_拜托\\]"
+    },
+    {
+        "src": "/img/gbc/gbc_拜拜.png",
+        "name": "@[gbc_拜拜]",
+        "reg": "@\\[gbc_拜拜\\]"
+    },
+    {
+        "src": "/img/gbc/gbc_比心.png",
+        "name": "@[gbc_比心]",
+        "reg": "@\\[gbc_比心\\]"
+    },
+    {
+        "src": "/img/gbc/gbc_胸有成竹.png",
+        "name": "@[gbc_胸有成竹]",
+        "reg": "@\\[gbc_胸有成竹\\]"
+    }
+
+]
