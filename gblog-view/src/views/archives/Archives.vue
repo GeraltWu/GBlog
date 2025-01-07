@@ -2,26 +2,25 @@
 	<div>
 		<div class="ui top attached segment" style="text-align: center">
 			<h2 class="m-text-500">文章归档</h2>
-			<p>好! 目前共计 {{ count }} 篇日志。 继续努力。</p>
+			<p>好! 目前共计 {{ totalQuantity }} 篇日志。 继续努力。</p>
 		</div>
 		<div class="ui attached segment m-grey1-bg">
 			<div class="timeline">
-				<div :class="colorObj[index % 5]" v-for="(value, key, index) in blogMap" :key="index">
+				<div v-for="(monthGroup, index) in blogList" :key="index" :class="colorObj[index % 4]" ref="archiveItems">
 					<div class="tl-header">
-						<a class="ui large label m-text-500">{{ key }}</a>
+						<a class="ui large label m-text-500">{{ formatMonth(monthGroup.month) }}</a>
 					</div>
-					<div class="tl-item" v-for="blog in value" :key="blog.id">
+					<div class="tl-item" v-for="blog in monthGroup.list" :key="blog.id">
 						<div class="tl-wrap">
 							<span class="tl-date">{{ blog.day }}</span>
-							<a href="javascript:;" @click.prevent="toBlog(blog)">
-								<div class="ui left pointing label tl-title">{{ blog.title }}</div>
+							<a href="javascript:;" @click.prevent="toBlog(blog)"  >
+								<div class="ui left pointing label tl-title" @mouseenter="onHover" @mouseleave="onLeave">{{ blog.title }}</div>
 							</a>
 						</div>
 					</div>
 				</div>
-
 				<div class="tl-header">
-					<a class="ui black large label m-text-500">Hello World!</a>
+					<a class="ui black large label m-text-500">初火</a>
 				</div>
 			</div>
 		</div>
@@ -30,60 +29,102 @@
 
 <script>
 import { getArchivesService } from "@/api/archives";
-import { ref, onMounted } from "vue";
+import { ref, onMounted, nextTick } from "vue";
 import { useBlogStore } from "@/stores/blog";
 import { ElMessage } from "element-plus";
+import { gsap } from "gsap";
 
 export default {
 	name: "blogArchives",
 	setup() {
-		const blogStore = useBlogStore()
+		const blogStore = useBlogStore();
 
 		// 获取文章归档数据
-		const blogMap = ref({})
-		const count = ref(0)
+		const blogList = ref([]);
+		const totalQuantity = ref(0);
+		const archiveItems = ref([]);
 
 		function getArchives() {
 			// 调用axios请求数据
 			getArchivesService().then(res => {
 				if (res.code === 200) {
-					blogMap.value = res.data.blogMap
-					count.value = res.data.count
+					blogList.value = res.data.list;
+					totalQuantity.value = res.data.totalQuantity;
+					nextTick(() => animateItems());
 				} else {
 					ElMessage.error(res.msg);
 				}
 			}).catch(() => {
 				ElMessage.error("请求失败");
-			})
+			});
 		}
+
+		// 动画效果
+		function animateItems() {
+			gsap.from(archiveItems.value, {
+				y: 20,
+				opacity: 0,
+				duration: 0.5,
+				stagger: 0.1,
+				ease: "power2.out"
+			});
+		}
+
+		// 鼠标悬浮放大
+		function onHover(event) {
+			gsap.to(event.currentTarget, {
+				scale: 1.15,
+				duration: 0.3,
+				ease: "power2.out"
+			});
+		}
+
+		// 鼠标离开效果
+		function onLeave(event) {
+			gsap.to(event.currentTarget, {
+				scale: 1,
+				duration: 0.3,
+				ease: "power2.out"
+			});
+		}
+
 		onMounted(() => {
-			getArchives()
-		})
+			getArchives();
+		});
 
 		//定义所有item的颜色集合
 		const colorObj = {
 			0: 'tl-blue',
 			1: 'tl-dark',
 			2: 'tl-green',
-			3: 'tl-purple',
-			4: 'tl-red',
+			3: 'tl-red',
+			4: 'tl-purple',
+		};
+
+		// 格式化月份显示
+		function formatMonth(month) {
+			const [year, monthNumber] = month.split('-');
+			return `${year}年${parseInt(monthNumber)}月`;
 		}
 
 		// 点击跳转文章详情
 		function toBlog(blog) {
-			blogStore.goBlogPage(blog)
+			blogStore.goBlogPage(blog);
 		}
 
 		return {
-			blogMap,
-			count,
+			blogList,
+			totalQuantity,
 			colorObj,
 			getArchives,
-			toBlog
-		}
+			toBlog,
+			formatMonth,
+			archiveItems,
+			onHover,
+			onLeave
+		};
 	},
-
-}
+};
 </script>
 
 <style scoped>
@@ -144,51 +185,51 @@ export default {
 
 .tl-blue .tl-header a,
 .tl-blue .tl-item .tl-title {
-	background: #23b7e5 !important;
+	background: var(--blue-color) !important;
 	color: #fff !important;
 }
 
 .tl-blue .tl-item .tl-wrap {
-	border-color: #23b7e5;
+	border-color: var(--blue-color);
 }
 
 .tl-dark .tl-header a,
 .tl-dark .tl-item .tl-title {
-	background: #3a3f51 !important;
+	background: var(--grey4-color) !important;
 	color: #fff !important;
 }
 
 .tl-dark .tl-item .tl-wrap {
-	border-color: #3a3f51;
+	border-color: var(--grey4-color);
 }
 
 .tl-green .tl-header a,
 .tl-green .tl-item .tl-title {
-	background: #27c24c !important;
+	background: var(--green-color) !important;
 	color: #fff !important;
 }
 
 .tl-green .tl-item .tl-wrap {
-	border-color: #27c24c;
-}
-
-.tl-purple .tl-header a,
-.tl-purple .tl-item .tl-title {
-	background: #7266ba !important;
-	color: #fff !important;
-}
-
-.tl-purple .tl-item .tl-wrap {
-	border-color: #7266ba;
+	border-color: var(--green-color);
 }
 
 .tl-red .tl-header a,
 .tl-red .tl-item .tl-title {
-	background: #f05050 !important;
+	background: var(--red-color) !important;
 	color: #fff !important;
 }
 
 .tl-red .tl-item .tl-wrap {
-	border-color: #f05050;
+	border-color: var(--red-color);
+}
+
+.tl-purple .tl-header a,
+.tl-purple .tl-item .tl-title {
+	background: var(--purple-color) !important;
+	color: #fff !important;
+}
+
+.tl-purple .tl-item .tl-wrap {
+	border-color: var(--purple-color);
 }
 </style>

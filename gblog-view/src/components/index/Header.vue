@@ -148,10 +148,10 @@ header.moving .bg2 {
 	height: 150;
 	font-size: 180px;
 	font-family: 'Frizon';
-	text-shadow: -3px -3px 0px #e13b1b, 9px 3px 0px #e13b1b;
+	text-shadow: -6px -3px 0px #e13b1b, 9px 3px 0px #0096cb;
 	opacity: 0.9;
 	border: 0;
-	color: #0096cb;
+	color: white;
 	letter-spacing: 3px;
 	line-height: 160px;
 	position: relative;

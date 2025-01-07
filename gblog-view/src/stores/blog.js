@@ -12,7 +12,7 @@ export const useBlogStore = defineStore('blog', () => {
     const isBlogToHome = ref(false)
 
     function goBlogPage(blog) {
-        if (blog.privacy) {
+        if (blog.isPrivate) {
             const adminToken = window.localStorage.getItem('adminToken')
             const blogToken = window.localStorage.getItem(`blog${blog.id}`)
             //对于密码保护文章，博主身份Token和经过密码验证后的Token都可以跳转路由，再由后端验证Token有效性

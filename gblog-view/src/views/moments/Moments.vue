@@ -5,7 +5,7 @@
 		</div>
 		<div class="ui attached segment m-padding-bottom-large">
 			<div class="moments">
-				<div class="moment" v-for="(moment, index) in momentList" :key="index">
+				<div class="moment" v-for="(moment, index) in momentList" :key="index" ref="momentItems">
 					<div class="avatar">
 						<img :src="siteStore.introduction.avatar">
 					</div>
@@ -37,14 +37,41 @@
 <script>
 import { getMomentListByPageNumService, likeMomentService } from "@/api/moment";
 import { dateFromNow } from "@/util/dateTimeFormatUtils";
-import { ref, computed, onMounted } from "vue";
+import { ref, computed, onMounted, watch, nextTick } from "vue";
 import { ElMessage } from "element-plus";
 import { useSiteStore } from "@/stores/site";
+import { gsap } from 'gsap';
 
 export default {
 	name: "blogMoments",
 	setup() {
 		const siteStore = useSiteStore()
+		const momentItems = ref([])
+
+		// 动画函数
+		const animateMoments = () => {
+			if (!momentItems.value.length) return
+
+			// 确保元素按照 DOM 顺序排列
+			const elements = Array.from(momentItems.value).sort((a, b) => {
+				return a.offsetTop - b.offsetTop
+			})
+
+			// 重置初始状态
+			gsap.set(elements, {
+				opacity: 0,
+				y: 50
+			})
+
+			// 创建动画
+			gsap.to(elements, {
+				opacity: 1,
+				y: 0,
+				duration: 0.8,
+				stagger: 0.2,
+				ease: "power2.out"
+			})
+		}
 
 		// 获取动态列表
 		const momentList = ref([])
@@ -58,6 +85,10 @@ export default {
 				if (res.code === 200) {
 					momentList.value = res.data.list
 					totalPage.value = res.data.totalPage
+					// 数据更新后执行动画
+					nextTick(() => {
+						animateMoments()
+					})
 				} else {
 					ElMessage.error(res.msg)
 				}
@@ -115,12 +146,11 @@ export default {
 
 		return {
 			siteStore,
-
+			momentItems,
 			likeMomentIds,
 			momentList,
 			pageNum,
 			totalPage,
-
 			isLike,
 			dateFromNow,
 			getMomentList,

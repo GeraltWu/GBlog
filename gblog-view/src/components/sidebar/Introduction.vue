@@ -127,50 +127,51 @@ export default {
 	setup() {
 		const siteStore = useSiteStore();
 
-		// 此时siteStore仍为空，不知道如何解决
-		onMounted(() => {
-			console.log(siteStore.introduction)
-			if (siteStore.introduction.rollText.length != 0) {
-				//等待 id="rollText"的div加载完毕
-				rollText()
+		// 监听introduction数据的变化
+		watch(() => siteStore.introduction, (newVal) => {
+			if (newVal && newVal.rollText && newVal.rollText.length !== 0) {
+				// 确保在DOM更新完成后再执行动画
+				nextTick(() => {
+					rollText();
+				});
 			}
-		})
+		}, { immediate: true });
 
 		function rollText() {
-			let r = document.getElementById('rollText')
-			let l = ""
+			let r = document.getElementById('rollText');
+			let l = "";
 			let o = siteStore.introduction.rollText.map(function (r) {
-				return r + ""
-			})
-			let a = 2
-			let g = 1
-			let s = 5
-			let d = 75
-			let b = ["rgb(110,64,170)", "rgb(150,61,179)", "rgb(191,60,175)", "rgb(228,65,157)", "rgb(254,75,131)", "rgb(255,94,99)", "rgb(255,120,71)", "rgb(251,150,51)", "rgb(226,183,47)", "rgb(198,214,60)", "rgb(175,240,91)", "rgb(127,246,88)", "rgb(82,246,103)", "rgb(48,239,130)", "rgb(29,223,163)", "rgb(26,199,194)", "rgb(35,171,216)", "rgb(54,140,225)", "rgb(76,110,219)", "rgb(96,84,200)"]
-			let c = { text: "", prefixP: -s, skillI: 0, skillP: 0, direction: "forward", delay: a, step: g }
+				return r + "";
+			});
+			let a = 2;
+			let g = 1;
+			let s = 5;
+			let d = 75;
+			let b = ["rgb(110,64,170)", "rgb(150,61,179)", "rgb(191,60,175)", "rgb(228,65,157)", "rgb(254,75,131)", "rgb(255,94,99)", "rgb(255,120,71)", "rgb(251,150,51)", "rgb(226,183,47)", "rgb(198,214,60)", "rgb(175,240,91)", "rgb(127,246,88)", "rgb(82,246,103)", "rgb(48,239,130)", "rgb(29,223,163)", "rgb(26,199,194)", "rgb(35,171,216)", "rgb(54,140,225)", "rgb(76,110,219)", "rgb(96,84,200)"];
+			let c = { text: "", prefixP: -s, skillI: 0, skillP: 0, direction: "forward", delay: a, step: g };
 
 			function t() {
-				return b[Math.floor(Math.random() * b.length)]
+				return b[Math.floor(Math.random() * b.length)];
 			}
 
 			function e() {
-				return String.fromCharCode(94 * Math.random() + 33)
+				return String.fromCharCode(94 * Math.random() + 33);
 			}
 
 			function n(r) {
 				for (var n = document.createDocumentFragment(), i = 0; r > i; i++) {
-					let l = document.createElement("span")
-					l.textContent = e(), l.style.color = t(), n.appendChild(l)
+					let l = document.createElement("span");
+					l.textContent = e(), l.style.color = t(), n.appendChild(l);
 				}
-				return n
+				return n;
 			}
 
 			function i() {
-				let t = o[c.skillI]
-				c.step ? c.step-- : (c.step = g, c.prefixP < l.length ? (c.prefixP >= 0 && (c.text += l[c.prefixP]), c.prefixP++) : "forward" === c.direction ? c.skillP < t.length ? (c.text += t[c.skillP], c.skillP++) : c.delay ? c.delay-- : (c.direction = "backward", c.delay = a) : c.skillP > 0 ? (c.text = c.text.slice(0, -1), c.skillP--) : (c.skillI = (c.skillI + 1) % o.length, c.direction = "forward")), r.textContent = c.text, r.appendChild(n(c.prefixP < l.length ? Math.min(s, s + c.prefixP) : Math.min(s, t.length - c.skillP))), setTimeout(i, d)
+				let t = o[c.skillI];
+				c.step ? c.step-- : (c.step = g, c.prefixP < l.length ? (c.prefixP >= 0 && (c.text += l[c.prefixP]), c.prefixP++) : "forward" === c.direction ? c.skillP < t.length ? (c.text += t[c.skillP], c.skillP++) : c.delay ? c.delay-- : (c.direction = "backward", c.delay = a) : c.skillP > 0 ? (c.text = c.text.slice(0, -1), c.skillP--) : (c.skillI = (c.skillI + 1) % o.length, c.direction = "forward")), r.textContent = c.text, r.appendChild(n(c.prefixP < l.length ? Math.min(s, s + c.prefixP) : Math.min(s, t.length - c.skillP))), setTimeout(i, d);
 			}
 
-			i()
+			i();
 		}
 
 		return {

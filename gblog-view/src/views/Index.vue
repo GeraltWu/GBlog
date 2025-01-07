@@ -112,7 +112,6 @@ export default {
 			getSiteService().then(res => {
 				if (res.code === 200) {
 					introduction.value = res.data.introduction;
-					badges.value = res.data.badges;
 					newBlogList.value = res.data.newBlogList;
 					categoryList.value = res.data.categoryList;
 					tagList.value = res.data.tagList;
