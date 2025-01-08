@@ -25,15 +25,17 @@ export const useCommentStore = defineStore('comment', {
         commentTotalPage: 0,
         // 评论列表
         comments: [],
-        // 评论回复的对象（-1代表顶级评论，0以上就是其回复的评论id）
+        // 评论回复的对象（-1代表顶级评论，0以上就是其回复的评论id），父评论id
         parentCommentId: -1,
+        // 回复所在的顶级评论id（-1代表顶级评论，0以上代表该回复所在的顶级评论id），根评论id
+        rootCommentId: -1,
         // 提交评论的表单
         commentForm: {
             content: '',
             nickname: '',
             email: '',
             website: '',
-            notice: true
+            isNotice: true
         },
     }),
     getters: {
@@ -153,6 +155,10 @@ export const useCommentStore = defineStore('comment', {
         setParentCommentId(parentCommentId) {
             this.parentCommentId = parentCommentId;
         },
+        // 设置根评论id
+        setRootCommentId(rootCommentId) {
+            this.rootCommentId = rootCommentId;
+        },
         // 重置评论表单，并保存用户信息
         resetCommentForm() {
             // 存好提交的表单信息
@@ -164,7 +170,7 @@ export const useCommentStore = defineStore('comment', {
             // 保存访客信息，下次评论时自动填充表单
             window.localStorage.setItem('commentForm', JSON.stringify(commentForm));
             this.commentForm.content = '';
-            this.commentForm.notice = true;
+            this.commentForm.isNotice = true;
         },
         // 从本地存储中恢复之前保存的评论表单信息
         restoreCommentForm() {

@@ -30,7 +30,7 @@
 					</div>
 					<div class="text" v-html="comment.content"></div>
 					<div class="actions">
-						<a class="reply" @click="setReply(comment.id)">回复</a>
+						<a class="reply" @click="setReply(comment.id, comment.id)">回复</a>
 					</div>
 				</div>
 				<!-- 如果要回复的是文章评论，那么在这里提供一个评论表单 -->
@@ -57,10 +57,10 @@
 								<div v-html="reply.content"></div>
 							</div>
 							<div class="actions">
-								<a class="reply" @click="setReply(reply.id)">回复</a>
+								<a class="reply" @click="setReply(reply.id, reply.rootCommentId)">回复</a>
 							</div>
 						</div>
-									<!-- 如果要回复的是评论的回复，那么在这里提供一个评论表单 -->
+				<!-- 如果要回复的是评论的回复，那么在这里提供一个评论表单 -->
 				<CommentForm v-if="commentStore.parentCommentId === reply.id" />
 					</div>
 
@@ -138,8 +138,9 @@ export default {
 			animateComments()
 		})
 
-		function setReply(id) {
-			commentStore.setParentCommentId(id);
+		function setReply(parentCommentId, rootCommentId) {
+			commentStore.setParentCommentId(parentCommentId);
+			commentStore.setRootCommentId(rootCommentId);
 		}
 
 		return {

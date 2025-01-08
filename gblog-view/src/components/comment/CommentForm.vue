@@ -88,7 +88,7 @@
 				</el-input>
 			</el-form-item> -->
 			<el-form-item label="订阅回复">
-				<el-switch v-model="commentStore.commentForm.notice"></el-switch>
+				<el-switch v-model="commentStore.commentForm.isNotice"></el-switch>
 			</el-form-item>
 			<el-form-item>
 				<button class="ui small primary button" v-throttle="{ value: postForm, event : 'click', time : 3000 }">发表评论</button>

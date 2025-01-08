@@ -1,0 +1,42 @@
+server:
+  port:
+    8090
+
+#blog:
+#  # https://api.naccl.top
+#  api:
+#    http://localhost:${server.port}
+#  # https://admin.naccl.top
+#  cms:
+#    http://localhost:8080
+#  # https://naccl.top
+#  view:
+#    http://localhost:8081
+
+spring:
+  application:
+    name:
+      gblog-view-backend
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/blog?serverTimezone=GMT%2B8&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: password
+
+  # 修改地址，解决swagger报错问题
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+mybatis:
+  # mapper映射文件包扫描 (这里是对应 resources 的文件路径)
+  mapper-locations: classpath:fun/wuziran/gblog/viewbackend/mapper/*.xml
+  # 实体类别名包扫描
+  type-aliases-package: fun.wuziran.gblog.viewbackend.entity
+  # 下划线格式映射驼峰格式
+  configuration:
+    map-underscore-to-camel-case: true
+
+
+
+
+

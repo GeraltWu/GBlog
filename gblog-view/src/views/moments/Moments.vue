@@ -14,7 +14,7 @@
 							<span style="font-weight: 700">{{ siteStore.introduction.name }}</span>
 							<span class="right floated">{{ dateFromNow(moment) }}</span>
 						</div>
-						<div class="content typo" :class="{ 'privacy': !moment.published }" v-viewer
+						<div class="content typo" :class="{ 'privacy': !moment.isPublished }" v-viewer
 							v-html="moment.content"></div>
 						<div class="extra content">
 							<a class="left floated" @click="like(moment.id)">
