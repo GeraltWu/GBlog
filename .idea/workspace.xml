@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1bb53970-6a69-486b-af7f-d1b34c0977ec" name="Changes" comment="删除一个没用的maven-wrapper，可以说是相当恶心人了，每次新建项目都要自动开始下载">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Geeker-Admin/src/api/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Geeker-Admin/src/api/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Geeker-Admin/src/routers/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Geeker-Admin/src/routers/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Geeker-Admin/src/stores/modules/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Geeker-Admin/src/stores/modules/auth.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/cotroller/SwaggerController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gblog-api/src/main/java/fun/wuziran/gblogapi/model/SwaggerApiModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gblog-view/src/components/comment/Comment.vue" beforeDir="false" afterPath="$PROJECT_DIR$/gblog-view/src/components/comment/Comment.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gblog-view/src/components/comment/CommentForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/gblog-view/src/components/comment/CommentForm.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gblog-view/src/stores/comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/gblog-view/src/stores/comment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gblog-view/src/views/moments/Moments.vue" beforeDir="false" afterPath="$PROJECT_DIR$/gblog-view/src/views/moments/Moments.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,40 +60,43 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;JUnit.GblogApiApplicationTests.testBlogInfoToJson (1).executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.GblogApiApplicationTests.testBlogInfoToJson.executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.GblogApiApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/OneDrive/learn/projects/admin3&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "JUnit.GblogApiApplicationTests.testBlogInfoToJson (1).executor": "Run",
+    "JUnit.GblogApiApplicationTests.testBlogInfoToJson.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.GblogApiApplication.executor": "Run",
+    "git-widget-placeholder": "main",
+    "jdk.selected.JAVA_MODULE": "17",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/OneDrive/learn/projects/GBlog/GBlog-view-backend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\OneDrive\learn\projects\GBlog\gblog-api\src\main\java\fun\wuziran\gblogapi" />
       <recent name="D:\OneDrive\learn\projects\GBlog\gblog-api\src\main\resources" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="fun.wuziran.gblog.viewbackend" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="fun.wuziran.gblogapi.annotation" />
@@ -124,15 +123,31 @@
       </method>
     </configuration>
     <configuration name="GblogApiApplicationTests.testBlogInfoToJson" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gblog-api" />
+      <module name="GBlog-view-backend" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="fun.wuziran.gblogapi.*" />
+          <option name="PATTERN" value="fun.wuziran.gblog.viewbackend.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="fun.wuziran.gblogapi" />
-      <option name="MAIN_CLASS_NAME" value="fun.wuziran.gblogapi.GblogApiApplicationTests" />
+      <option name="PACKAGE_NAME" value="fun.wuziran.gblog.viewbackend" />
+      <option name="MAIN_CLASS_NAME" value="fun.wuziran.gblog.viewbackend.GblogApiApplicationTests" />
+      <option name="METHOD_NAME" value="testBlogInfoToJson" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GblogApiApplicationTests.testBlogInfoToJson" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GBlog-view-backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="fun.wuziran.gblog.viewbackend.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="fun.wuziran.gblog.viewbackend" />
+      <option name="MAIN_CLASS_NAME" value="fun.wuziran.gblog.viewbackend.GblogApiApplicationTests" />
       <option name="METHOD_NAME" value="testBlogInfoToJson(java.lang.Object)" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -140,8 +155,8 @@
       </method>
     </configuration>
     <configuration name="GblogApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="gblog-api" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="fun.wuziran.gblogapi.GblogApiApplication" />
+      <module name="GBlog-view-backend" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="fun.wuziran.gblog.viewbackend.GblogApiApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -197,6 +212,8 @@
       <workItem from="1734877096640" duration="1024000" />
       <workItem from="1735744146329" duration="578000" />
       <workItem from="1736347476038" duration="38000" />
+      <workItem from="1736352070734" duration="4376000" />
+      <workItem from="1736500284554" duration="70000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <option name="closed" value="true" />

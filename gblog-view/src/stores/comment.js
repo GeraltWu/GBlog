@@ -4,6 +4,9 @@ import {getCommentListByQueryService, submitCommentService} from "@/api/comment"
 import { ElMessage, ElNotification } from "element-plus";
 // 导入表情符号映射文件
 import tiebaMapper from '@/plugins/tiebaMapper.json'
+import MygoMapper from '@/plugins/MygoMapper.json'
+import gbcMapper from '@/plugins/gbcMapper.json'
+import BanGDreamMapper from '@/plugins/BanGDreamMapper.json'
 // 导入HTML清理库
 import sanitizeHtml from 'sanitize-html'
 
@@ -35,7 +38,7 @@ export const useCommentStore = defineStore('comment', {
             nickname: '',
             email: '',
             website: '',
-            isNotice: true
+            isNotice: true,
         },
     }),
     getters: {
@@ -54,16 +57,28 @@ export const useCommentStore = defineStore('comment', {
 
             //替换表情代码为表情图片函数
             const replaceEmoji = (comment, emoji) => {
-                comment.content = comment.content.replace(new RegExp(emoji.reg, 'g'), `<img src="${emoji.src}">`)
+                comment.content = comment.content.replace(new RegExp(emoji.reg, 'g'), `<img src="${emoji.src}" width="64px" height="64px">`)
             }
             const convertEmoji = (comment) => {
                 tiebaMapper.forEach(emoji => {
                     replaceEmoji(comment, emoji)
                 })
+                    // 添加其他表情包的转换
+                MygoMapper.forEach(emoji => {
+                    replaceEmoji(comment, emoji)
+                })
+                
+                gbcMapper.forEach(emoji => {
+                    replaceEmoji(comment, emoji)
+                })
+                
+                BanGDreamMapper.forEach(emoji => {
+                    replaceEmoji(comment, emoji)
+                })
             }
 
             //真正开始发送请求获取评论列表
-            getCommentListByQueryService(token, this.commentQuery).then(res => {
+            getCommentListByQueryService(this.commentQuery).then(res => {
                 if (res.code === 200) {
                     let sanitizeHtmlConfig = {
                         allowedTags: [],
@@ -93,6 +108,17 @@ export const useCommentStore = defineStore('comment', {
             })
         },
         /**
+         * 随机选择一个头像
+         * @returns {string} 随机头像的路径
+         */
+        getRandomAvatar() {
+            // 假设我们有6个头像文件，命名为1.jpg到6.jpg
+            const avatarCount = 6;
+            const randomIndex = Math.floor(Math.random() * avatarCount) + 1;
+            return `/img/comment-avatar/${randomIndex}.jpg`;
+        },
+        
+        /**
          * 接收用户填写的评论表单数据，调用 submitCommentService API 发送到后端。
          * 提交成功后，会显示成功通知，重置评论表单，并重新获取评论列表。
          * 如果提交失败，则显示错误通知。
@@ -105,30 +131,25 @@ export const useCommentStore = defineStore('comment', {
             form.page = this.commentQuery.page
             form.blogId = this.commentQuery.blogId
             form.parentCommentId = this.parentCommentId
-            submitCommentService(token, form).then(res => {
+            form.rootCommentId = this.rootCommentId
+            
+            // 添加随机头像
+            form.avatar = this.getRandomAvatar()
+            
+            submitCommentService(form).then(res => {
                 if (res.code === 200) {
-                    ElNotification({
-                        title: res.msg,
-                        type: 'success'
-                    })
+                    ElMessage.success("评论成功")
                     // 提交成功后，抹掉之前设置的回复对象id
                     this.setParentCommentId(-1);
+                    this.setRootCommentId(-1);
                     // 重新获取评论列表
                     this.resetCommentForm();
                     this.getCommentList();
                 } else {
-                    ElNotification({
-                        title: '评论失败',
-                        message: res.msg,
-                        type: 'error'
-                    })
+                    ElMessage.error(res.msg)
                 }
             }).catch(() => {
-                ElNotification({
-                    title: '评论失败',
-                    message: '异常错误',
-                    type: 'error'
-                })
+                ElMessage.error("网络异常")
             })
         },
 

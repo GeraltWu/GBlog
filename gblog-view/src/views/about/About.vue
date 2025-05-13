@@ -8,7 +8,7 @@
 		</div>
 		<!--评论-->
 		<div class="ui bottom teal attached segment threaded comments">
-			<CommentList :page="1" :blogId="null" v-if="about.commentEnabled==='true'"/>
+			<CommentList :page="1" :blogId="null" v-if="about.commentEnabled"/>
 			<h3 class="ui header" v-else>评论已关闭</h3>
 		</div>
 	</div>
@@ -30,12 +30,15 @@ const about = ref({
 	title: '',
 	musicId: '',
 	content: '',
-	commentEnabled: 'false'
+	// 是否允许评论 boolean
+	commentEnabled: false
+
 })
 
 const getData = () => {
 	getAboutService().then(res => {
 		if (res.code === 200) {
+			console.log(res.data);
 			about.value = res.data;
 		} else {
 			ElMessage.error(res.msg);

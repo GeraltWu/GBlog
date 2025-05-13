@@ -77,11 +77,7 @@ export default {
 		const momentList = ref([])
 		const totalPage = ref(0)
 		function getMomentList() {
-			//如果有则发送博主身份Token
-			const adminToken = window.localStorage.getItem('adminToken')
-			const token = adminToken ? adminToken : ''
-
-			getMomentListByPageNumService(token, pageNum.value).then(res => {
+			getMomentListByPageNumService(pageNum.value).then(res => {
 				if (res.code === 200) {
 					momentList.value = res.data.list
 					totalPage.value = res.data.totalPage

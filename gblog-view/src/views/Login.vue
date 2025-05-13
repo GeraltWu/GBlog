@@ -28,11 +28,13 @@ import { loginService } from "@/api/login";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { ElMessage } from "element-plus";
+import { useAuthStore } from '@/stores/auth';
 
 export default {
 	name: "blogLogin",
 	setup() {
 		const router = useRouter();
+		const authStore = useAuthStore();
 
 		const loginFormRef = ref(null); // ref 用于获取表单实例
 		const loginForm = ref({
@@ -47,25 +49,31 @@ export default {
 				{ required: true, message: '请输入密码', trigger: 'blur' },
 			]
 		})
+
+		// 重置登录表单
 		function resetLoginForm() {
 			loginFormRef.value.resetFields();
 		}
+
+		// 登录
 		function login() {
 			loginFormRef.value.validate(valid => {
 				if (valid) {
 					loginService(loginForm.value).then(res => {
 						if (res.code === 200) {
-							ElMessage.success(res.msg)
-							window.localStorage.setItem('adminToken', res.data.token)
-							router.push('/home')
+							// 更新认证状态
+							authStore.setToken(res.data.token);
+							ElMessage.success('登录成功');
+							// 跳转到首页
+							router.push('/');
 						} else {
-							ElMessage.error(res.msg)
+							ElMessage.error(res.msg);
 						}
 					}).catch(() => {
-						ElMessage.error("请求失败")
-					})
+						ElMessage.error('登录请求失败');
+					});
 				}
-			})
+			});
 		}
 
 		return {

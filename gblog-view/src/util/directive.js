@@ -5,7 +5,7 @@ export function setupDirectives(app) {
  	* 简写：<el-button v-debounce="[reset]">刷新</el-button>
  	*/
 	app.directive('debounce', {
-		inserted: function (el, binding) {
+		mounted: function (el, binding) {
 			let [fn, event = "click", time = 300] = binding.value
 			let timer
 			el.addEventListener(event, () => {
@@ -21,7 +21,7 @@ export function setupDirectives(app) {
 	 * 传递参数：<el-button v-throttle="[()=>reset(param),`click`,300]">刷新</el-button>
 	 */
 	app.directive('throttle', {
-		inserted: function (el, binding) {
+		mounted: function (el, binding) {
 			let { fn, event = "click", time = 300 } = binding.value
 			let now, preTime
 			el.addEventListener(event, () => {

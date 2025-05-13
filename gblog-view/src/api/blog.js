@@ -1,12 +1,9 @@
 import axios from '@/plugins/axios'
 
-export function getBlogByIdService(token, id) {
+export function getBlogByIdService(id) {
 	return axios({
 		url: 'blog',
 		method: 'GET',
-		headers: {
-			Authorization: token,
-		},
 		params: {
 			id
 		}
@@ -15,7 +12,7 @@ export function getBlogByIdService(token, id) {
 
 export function checkBlogPasswordService(blogPasswordForm) {
 	return axios({
-		url: 'checkBlogPassword',
+		url: 'check-blog-password',
 		method: 'POST',
 		data: {
 			...blogPasswordForm

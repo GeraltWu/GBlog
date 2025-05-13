@@ -24,6 +24,7 @@ import { useBlogStore } from "@/stores/blog";
 import { useRouter } from "vue-router";
 import { ref } from 'vue';
 import { checkBlogPasswordService } from "@/api/blog";
+import { ElMessage } from "element-plus";
 
 export default {
 	name: "BlogPasswordDialog",
@@ -46,15 +47,15 @@ export default {
 				if (valid) {
 					checkBlogPasswordService(blogStore.blogPasswordForm).then(res => {
 						if (res.code === 200) {
-							msgSuccess(res.msg)
+							ElMessage.success(res.msg)
 							window.localStorage.setItem(`blog${blogStore.blogPasswordForm.blogId}`, res.data)
 							router.push(`/blog/${blogStore.blogPasswordForm.blogId}`)
 							blogPasswordDialogClosed()
 						} else {
-							msgError(res.msg)
+							ElMessage.error(res.msg)
 						}
 					}).catch(() => {
-						msgError("请求失败")
+						ElMessage.error("请求失败")
 					})
 				}
 			})

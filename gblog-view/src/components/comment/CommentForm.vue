@@ -15,7 +15,7 @@
 				<div class="emoji-box" v-show="emojiShow">
 					<!-- 表情选择框标题 -->
 					<div class="emoji-title">
-						<span>{{ ['贴吧', 'Mygo', '闺泣'][activeEmojiTab] }}</span>
+						<span>{{ ['贴吧', 'Mygo', 'gbc','BanGDream'][activeEmojiTab] }}</span>
 					</div>
 					<!-- 表情展示栏 -->
 					<div class="emoji-wrap" v-show="activeEmojiTab === 0">
@@ -39,9 +39,18 @@
 							<img :src="img.src" :title="img.name">
 						</div>
 					</div>
-
+					<div class="emoji-wrap" v-show="activeEmojiTab === 3">
+						<!-- 点击表情插入textarea -->
+						<div class="emoji-list-lg" v-for="(img, index) in BanGDreamMapper" :key="index"
+							@click="insertEmoji(img.name)">
+							<img :src="img.src" :title="img.name">
+						</div>
+					</div>
 					<!-- 表情菜单 -->
 					<div class="emoji-tabs">
+						<a class="tab-link" :class="{ 'on': activeEmojiTab === 3 }" @click="activeEmojiTab = 3">
+							<img src="/img/BanGDream/BanGDream_香澄-期待.png">
+						</a>
 						<a class="tab-link" :class="{ 'on': activeEmojiTab === 0 }" @click="activeEmojiTab = 0">
 							<img src="/img/tieba/1.png">
 						</a>
@@ -91,9 +100,9 @@
 				<el-switch v-model="commentStore.commentForm.isNotice"></el-switch>
 			</el-form-item>
 			<el-form-item>
-				<button class="ui small primary button" v-throttle="{ value: postForm, event : 'click', time : 3000 }">发表评论</button>
+				<button type="button" class="ui small primary button" v-throttle="{ fn: postForm, event : 'click', time : 3000 }">发表评论</button>
 				<!-- 取消回复按钮 仅在回复的时候出现 -->
-				<button class="ui small button" @click="commentStore.setParentCommentId(-1)"
+				<button type="button" class="ui small button" @click="commentStore.setParentCommentId(-1)"
 					v-show="commentStore.parentCommentId !== -1">取消回复</button>
 			</el-form-item>
 		</el-form>
@@ -106,6 +115,7 @@ import { checkEmail, checkUrl } from "@/common/reg";
 import tiebaMapperJson from '@/plugins/tiebaMapper.json';
 import gbcMapperJson from '@/plugins/gbcMapper.json';
 import MygoMapperJson from '@/plugins/MygoMapper.json';
+import BanGDreamJson from '@/plugins/BanGDreamMapper.json';
 import { ref, nextTick, onMounted } from 'vue';
 import { ElMessage } from 'element-plus';
 
@@ -166,10 +176,11 @@ export default {
 
 		// 添加表情
 		const emojiShow = ref(false)
-		const activeEmojiTab = ref(0)
+		const activeEmojiTab = ref(3)
 		const tiebaMapper = ref([])
 		const gbcMapper = ref([])
 		const MygoMapper = ref([])
+		const BanGDreamMapper = ref([])
 
 		const showEmojiBox = () => {
 			start.value = textarea.value.selectionStart
@@ -195,6 +206,7 @@ export default {
 			textarea.value.setSelectionRange(start.value, end.value)
 		}
 		onMounted(() => {
+			BanGDreamMapper.value = BanGDreamJson
 			tiebaMapper.value = tiebaMapperJson
 			gbcMapper.value = gbcMapperJson
 			MygoMapper.value = MygoMapperJson
@@ -215,6 +227,7 @@ export default {
 			tiebaMapper,
 			gbcMapper,
 			MygoMapper,
+			BanGDreamMapper,
 			showEmojiBox,
 			insertEmoji,
 			hideEmojiBox
@@ -228,7 +241,7 @@ export default {
 .form {
 	background: #fff;
 	position: relative;
-	z-index: 99;
+	z-index: 100;
 }
 
 .form h3 {
@@ -291,7 +304,7 @@ export default {
 	width: 400px;
 	position: absolute;
 	top: 40px;
-	z-index: 100;
+	z-index: 1000 !important;
 }
 
 .emoji-box * {
@@ -387,7 +400,7 @@ export default {
 .mask {
 	pointer-events: auto;
 	position: fixed;
-	z-index: 99;
+	z-index: 999;
 	top: 0;
 	bottom: 0;
 	left: 0;

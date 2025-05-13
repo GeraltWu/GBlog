@@ -1,27 +1,21 @@
 import axios from '@/plugins/axios'
 
-export function getCommentListByQueryService(token, query) {
-	return axios({
-		url: 'comments',
-		method: 'GET',
-		headers: {
-			Authorization: token,
-		},
-		params: {
-			...query
-		}
-	})
+export function getCommentListByQueryService(query) {
+    return axios({
+        url: 'comments',
+        method: 'GET',
+        params: {
+            ...query
+        }
+    })
 }
 
-export function submitCommentService(token, form) {
-	return axios({
-		url: 'comment',
-		method: 'POST',
-		headers: {
-			Authorization: token,
-		},
-		data: {
-			...form
-		}
-	})
+export function submitCommentService(form) {
+    return axios({
+        url: 'comment',
+        method: 'POST',
+        data: {
+            ...form
+        }
+    })
 }

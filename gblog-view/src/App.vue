@@ -9,11 +9,16 @@
 	</div>
 </template>
 
-<script>
-	export default {
-		name: 'app'
-	}
-	console.log(import.meta.env)
+<script setup>
+import { onMounted } from 'vue';
+import { useAuthStore } from '@/stores/auth';
+
+const authStore = useAuthStore();
+
+onMounted(() => {
+    // 初始化认证状态
+    authStore.initToken();
+});
 </script>
 
 <style>

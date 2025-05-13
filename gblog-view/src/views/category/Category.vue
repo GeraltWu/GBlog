@@ -39,7 +39,7 @@ export default {
 		})
 
 		function getBlogList(pageNum) {
-			getBlogListByCategoryNameService(categoryName, pageNum).then(res => {
+			getBlogListByCategoryNameService(categoryName.value, pageNum).then(res => {
 				if (res.code === 200) {
 					blogList.value = res.data.list
 					totalPage.value = res.data.totalPage

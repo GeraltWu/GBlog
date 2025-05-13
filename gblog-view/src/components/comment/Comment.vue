@@ -4,7 +4,6 @@
 */
 <template>
 	<!--评论列表-->
-	<div>
 		<CommentForm v-if="commentStore.parentCommentId === -1" />
 		<div class="ui threaded comments">
 			<h3 class="ui dividing header">Comments | 共 {{ commentStore.allComment }} 条评论
@@ -67,10 +66,7 @@
 				</div>
 				<div class="border"></div>
 			</div>
-
-
 		</div>
-	</div>
 </template>
 
 <script>
@@ -168,8 +164,15 @@ export default {
 .ui.threaded.comments .comment .comments {
 	box-shadow: none;
 	margin-top: -2em;
+	width: 100% !important;
+	max-width: 100% !important;
 }
-
+/* 覆盖 Semantic UI 的宽度限制 */
+:deep(.ui.comments),
+.ui.threaded.comments {
+  max-width: 100% !important;
+  width: 100% !important;
+}
 .comment {
 	padding-right: 1em !important;
 	padding-left: 1em !important;
@@ -180,10 +183,6 @@ export default {
 	color: #000;
 }
 
-.comment {
-	margin-left: 5px;
-	padding: 4px 5px;
-}
 
 .comment>.anchor {
 	position: absolute;
@@ -227,7 +226,6 @@ export default {
 .ui.comments .comment .text div {
 	display: inline;
 }
-
 .label {
 	cursor: default;
 	padding: 4px 6px !important;
@@ -237,4 +235,7 @@ export default {
 .comment .form {
 	margin-top: 20px;
 }
+
 </style>
+
+

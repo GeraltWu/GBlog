@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div class="ui padded attached segment m-padded-tb-large">
-			<div class="ui large red right corner label" v-if="blog.top">
+			<div class="ui large red right corner label" v-if="blog.isTop">
 				<i class="arrow alternate circle up icon"></i>
 			</div>
 			<div class="ui middle aligned mobile reversed stackable">
@@ -34,9 +34,9 @@
 						</div>
 					</div>
 					<!--分类-->
-					<router-link :to="`/category/${blog.category.name}`" class="ui red large ribbon label"
+					<router-link :to="`/category/${blog.category.categoryName}`" class="ui red large ribbon label"
 						v-if="blog.category">
-						<i class="small folder open icon"></i><span class="m-text-500">{{ blog.category.name }}</span>
+						<i class="small folder open icon"></i><span class="m-text-500">{{ blog.category.categoryName }}</span>
 					</router-link>
 					<!--文章Markdown正文-->
 					<div class="typo js-toc-content m-padded-tb-small match-braces rainbow-braces" v-viewer
@@ -62,8 +62,8 @@
 					<!--标签-->
 					<div class="row m-padded-tb-no">
 						<div class="column m-padding-left-no">
-							<router-link :to="`/tag/${tag.name}`" class="ui tag label m-text-500 m-margin-small"
-								:class="tag.color" v-for="(tag, index) in blog.tags" :key="index">{{ tag.name
+							<router-link :to="`/tag/${tag.tagName}`" class="ui tag label m-text-500 m-margin-small"
+								:class="tag.color" v-for="(tag, index) in blog.tags" :key="index">{{ tag.tagName
 								}}</router-link>
 						</div>
 					</div>
@@ -84,7 +84,7 @@
 		</div>
 		<!--评论-->
 		<div class="ui bottom teal attached segment threaded comments">
-			<CommentList :page="0" :blogId="blogId" v-if="blog.commentEnabled" />
+			<CommentList :page="0" :blogId="blogId" v-if="blog.isCommentEnabled" />
 			<h3 class="ui header" v-else>评论已关闭</h3>
 		</div>
 	</div>
@@ -148,13 +148,14 @@ export default {
 			}
 		})
 
-		function getBlog(id = blogId) {
+		function getBlog(id = blogId.value) {
 			//密码保护的文章，需要发送密码验证通过后保存在localStorage的Token
 			const blogToken = window.localStorage.getItem(`blog${id}`)
 			//如果有则发送博主身份Token
 			const adminToken = window.localStorage.getItem('adminToken')
 			// 同样是token，只是得到token的方式不一样
 			const token = adminToken ? adminToken : (blogToken ? blogToken : '')
+			console.log(id)
 			getBlogByIdService(token, id).then(res => {
 				if (res.code === 200) {
 					blog.value = res.data

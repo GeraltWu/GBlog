@@ -2,7 +2,7 @@
 	<div>
 		<div class="blog-item" v-for="item in blogList" :key="item.id" ref="blogItems">
 			<div class="ui padded attached segment m-padded-tb-large m-margin-bottom-big m-box m-grey1-bg">
-				<div class="ui large red right corner label" v-if="item.top">
+				<div class="ui large red right corner label" v-if="item.isTop">
 					<i class="arrow alternate circle up icon"></i>
 				</div>
 				<div class="ui middle aligned mobile reversed stackable">
@@ -33,8 +33,8 @@
 							</div>
 						</div>
 						<!--分类-->
-						<router-link :to="`/category/${item.category.name}`" class="ui red large ribbon label ">
-							<i class="small folder open icon m-white"></i><span class="m-text-500 m-white">{{ item.category.name }}</span>
+						<router-link :to="`/category/${item.category.categoryName}`" class="ui red large ribbon label ">
+							<i class="small folder open icon m-white"></i><span class="m-text-500 m-white">{{ item.category.categoryName }}</span>
 						</router-link>
 						<!--文章Markdown描述-->
 						<div class="typo m-padded-tb-small line-numbers match-braces rainbow-braces"
@@ -49,8 +49,8 @@
 						<!--标签-->
 						<div class="row m-padded-tb-no">
 							<div class="column m-padding-left-no">
-								<router-link :to="`/tag/${tag.name}`" class="ui tag label m-text-500 m-margin-small"
-									:class="tag.color" v-for="(tag, index) in item.tags" :key="index">{{ tag.name
+								<router-link :to="`/tag/${tag.tagName}`" class="ui tag label m-text-500 m-margin-small"
+									:class="tag.color" v-for="(tag, index) in item.tags" :key="index">{{ tag.tagName
 									}}</router-link>
 							</div>
 						</div>
